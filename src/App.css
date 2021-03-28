@@ -38,6 +38,12 @@ grid-area: h;
   height: 30%;
 }
 
+.app-wrapper.Profile {
+  width: 33px;
+
+
+}
+
 /*
 .Profile img2 {
   !*grid-area: c;*!

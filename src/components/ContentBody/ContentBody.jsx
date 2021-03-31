@@ -1,7 +1,7 @@
 import React from "react";
 import z from "./ContentBody.module.css";
-import "./Profile";
-import Profile from "./Profile";
+import "../Profile/Profile";
+import Profile from "../Profile/Profile";
 
 
 const ContentBody = () => {

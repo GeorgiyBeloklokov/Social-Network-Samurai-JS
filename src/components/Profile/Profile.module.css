@@ -5,7 +5,9 @@
 
 
 .img1profile{
-    width: 10rem;
+    width: 15%;
+    height: 6%;
+    float: left;
 }
 
 .textprofile {

@@ -1,0 +1,14 @@
+.headprofile {
+    grid-area: c;
+
+}
+
+
+.img1profile{
+    width: 10rem;
+}
+
+.textprofile {
+    float:left; /* Выравнивание по левому краю */
+    /*margin: 7px 7px 7px 0; !* Отступы вокруг картинки *!*/
+}

@@ -1,13 +1,17 @@
 import React from "react";
+import "./ContentBody.css";
+import "./Profile";
+import Profile from "./Profile";
+
 
 const ContentBody = () => {
-    return  <div className='ContentBody'>
+    return  <div className='contentbody1'>
+        <div >
+            <img className='image1' src='https://fainaidea.com/wp-content/uploads/2020/05/f8a4c90d00ce2e5684c3bf47c4a6ce17.jpg' alt=" "/>
 
-        <div className="avabody">ava = descripcoion</div>
-        <div className="mypostbody">my post</div>
-        <div className="newpostbody">new post</div>
-        <div className="post1body">post 1</div>
-        <div className="post1body2">post 2</div>
+        </div>
+        <Profile />
+
     </div>
 }
 export default ContentBody;

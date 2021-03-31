@@ -8,44 +8,12 @@
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
   grid-gap: 4px;
-
-}
-
-.header {
-grid-area: h;
-  background-color: aquamarine;
-}
-.header img {
-  width: 6%;
-
-}
-.nav {
-  /*position: absolute;*/
-  grid-area: n;
-  background-color: orange;
-}
-.nav li {
-  margin: 10px 0;
-}
-
-.ContentBody {
-  grid-area:c;
-  background-color: blueviolet;
-}
-
-.app-wrapper.Profile.images {
-  width: 98%;
-  height: 30%;
 }
 
 
 
 
 
-/*
-.Profile img2 {
-  !*grid-area: c;*!
-   width: 50%;
-   height: 60%;
- }
-*/
+
+
+

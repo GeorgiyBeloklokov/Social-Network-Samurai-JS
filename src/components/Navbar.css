@@ -1,0 +1,11 @@
+
+.nav {
+    grid-area: n;
+    background-color: orange;
+
+}
+.nav li {
+    margin: 10px 0;
+    color: white;
+}
+

@@ -1,13 +1,6 @@
 .headprofile {
     grid-area: c;
-
-}
-
-
-.img1profile{
-    width: 17%;
-    height: 10%;
-    /*float: left;*/
+    background-color: blueviolet;
 }
 
 .textprofile {

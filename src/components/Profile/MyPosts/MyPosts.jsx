@@ -3,12 +3,24 @@ import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 
+
 const MyPosts = () => {
     return <div>
+        <div >
+            <img className={s.image1} src='https://fainaidea.com/wp-content/uploads/2020/05/f8a4c90d00ce2e5684c3bf47c4a6ce17.jpg' alt=" "/>
+
+        </div>
+
+        <div>
+            < img className={s.img1profile} src='https://universalnews.org/wp-content/uploads/2020/05/Facebook-Avatar.jpg' alt = " "/>
+
+        </div>
+
         <div>
             < img className={s.image} src='https://universalnews.org/wp-content/uploads/2020/05/Facebook-Avatar.jpg' alt = " "/>
 
         </div>
+
         <div>
             <textarea placeholder={"YOUR TEXT"}> </textarea>
 <button>Add</button>

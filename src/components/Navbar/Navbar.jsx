@@ -1,11 +1,10 @@
 import React from "react";
 import s from "./Navbar.module.css";
 
-
 const Navbar = () => {
     return (
-    <nav className={s.nav}>
-        <div className={s.ithem}>
+        <nav className={s.nav}>
+            <div className={s.ithem}>
                 <a href="/profile">Profile</a>
             </div>
             <div className={s.ithem}>
@@ -13,15 +12,14 @@ const Navbar = () => {
             </div>
             <div className={s.ithem}>
                 <a href="/news">News</a>
-                </div>
+            </div>
             <div className={s.ithem}>
                 <a href="/music">Music</a>
             </div>
             <div className={s.ithem}>
                 <a href="/settings">Settings</a>
             </div>
-    </nav>
-
+        </nav>
     )
 }
 export default Navbar;

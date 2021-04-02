@@ -2,10 +2,14 @@
 .nav {
     grid-area: n;
     background-color: orange;
-
-}
-.ithem {
-    margin: 10px 0;
     color: white;
 }
 
+.ithem a {
+    color: white;
+}
+
+.ithem {
+    list-style-type: none;
+    margin: 10px 0;
+}

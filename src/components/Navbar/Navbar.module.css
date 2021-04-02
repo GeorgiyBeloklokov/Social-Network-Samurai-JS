@@ -18,9 +18,11 @@
     margin: 0.8rem;
 }
 
-
 .ithem a:hover,
 .ithem a:active,
 .ithem a.active {
     color: blue;
+}
+.headithem .active {
+    color: red;
 }

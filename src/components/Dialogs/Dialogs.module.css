@@ -1,4 +1,16 @@
-.img {
+.headmessages {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
 
+}
+
+.dialogs {
+    padding: 1rem;
+}
+
+.messages {
+    padding: 1rem;
+}
+.dialogs .active {
     color: red;
 }

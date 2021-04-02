@@ -2,9 +2,12 @@
 .nav {
     grid-area: n;
     background-color: orange;
-    color: white;
+
 }
 
+.ithem a.active {
+    color: blue;
+}
 .ithem a {
     color: white;
 }
@@ -12,4 +15,11 @@
 .ithem {
     list-style-type: none;
     margin: 10px 0;
+}
+
+
+.ithem a:hover,
+.ithem a:active,
+.ithem a.active {
+    color: blue;
 }

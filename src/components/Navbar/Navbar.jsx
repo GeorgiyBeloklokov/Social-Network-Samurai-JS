@@ -1,14 +1,10 @@
 import React from "react";
 import s from "./Navbar.module.css";
-/*import {BrowserRouter, Route} from "react-router-dom";*/
 
 
 const Navbar = () => {
     return (
-        /*<BrowserRouter>*/
     <nav className={s.nav}>
-        {/*<Route path="/profile" component= {Profile}/>
-        <Route path="/dialogs" component= {Messages}/>*/}
         <div className={s.ithem}>
                 <a href="/profile">Profile</a>
             </div>
@@ -26,7 +22,6 @@ const Navbar = () => {
             </div>
     </nav>
 
-        /*</BrowserRouter>*/
     )
 }
 export default Navbar;

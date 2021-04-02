@@ -16,6 +16,7 @@ const MyPosts = () => {
                   src='https://universalnews.org/wp-content/uploads/2020/05/Facebook-Avatar.jpg' alt=" "/>
 
         </div>
+        <div>ava = descripcoion</div>
 
         <div>
             < img className={s.image} src='https://universalnews.org/wp-content/uploads/2020/05/Facebook-Avatar.jpg'
@@ -24,10 +25,11 @@ const MyPosts = () => {
         </div>
 
         <div>
+            <div className={s.ithem}>My post</div>
             <textarea placeholder={"YOUR TEXT"}> </textarea>
             <button>Add</button>
         </div>
-        <div className={s.ithem}>my post</div>
+
         <Post message=' Hi, i im funny' Like={20}/>
         <Post message='hello, its my first post' Like={50}/>
 

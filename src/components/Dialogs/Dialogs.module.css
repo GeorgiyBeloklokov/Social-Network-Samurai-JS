@@ -1,4 +1,4 @@
-.headmessages {
+.headDialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
 
@@ -11,6 +11,6 @@
 .messages {
     padding: 1rem;
 }
-.dialogs .active {
-    color: red;
-}
+
+
+

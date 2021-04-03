@@ -1,28 +1,26 @@
 
+
+
 .nav {
     grid-area: n;
     background-color: orange;
 
 }
 
-.ithem a.active {
-    color: blue;
-}
-.ithem a {
+
+.itHem a {
     color: white;
     text-decoration: none;
 }
 
-.ithem {
+.itHem {
     list-style-type: none;
     margin: 0.8rem;
 }
 
-.ithem a:hover,
-.ithem a:active,
-.ithem a.active {
-    color: blue;
+.heaDitHem a:hover,
+.heaDitHem a:active,
+.heaDitHem a.active {
+    color: red
 }
-.headithem .active {
-    color: red;
-}
+

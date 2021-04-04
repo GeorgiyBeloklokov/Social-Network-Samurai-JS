@@ -2,5 +2,8 @@
     grid-area: c;
     background-color: blueviolet;
 }
-
+.image1 {
+    width: 100%;
+    height: 20rem;
+}
 

@@ -4,9 +4,9 @@ import {NavLink} from "react-router-dom";
 
 const DialogIthem = (props) => {
     let path = "/dialogs/" + props.id;
-return <div className={f.dialog}>
-    <NavLink to={path}>{props.name}</NavLink>
-</div>
+    return <div className={f.dialog}>
+        <NavLink to={path}>{props.name}</NavLink>
+    </div>
 }
 const Message = (props) => {
     return <div className={f.message}>{props.message}</div>
@@ -25,22 +25,9 @@ const Dialogs = () => {
                 <DialogIthem name="Tanya" id="6"/>
             </div>
             <div className={f.messageIthem}>
-                <Message />
-                <div className={f.message}>
-                    How are you
-                </div>
-                <div className={f.message}>
-                    oh okkkay
-                </div>
-                <div className={f.message}>
-                    he gys how are you
-                </div>
-                <div className={f.message}>
-                    Fineee
-                </div>
-                <div className={f.message}>
-                    Goood
-                </div>
+                <Message message="hello"/>
+                <Message message="i m fine"/>
+                <Message message="how are yoy"/>
             </div>
 
         </div>

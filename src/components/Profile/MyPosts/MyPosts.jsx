@@ -4,8 +4,15 @@ import Post from "./Post/Post";
 
 
 const MyPosts = () => {
+
+    let postData = [
+        {id: 1, message: 'Hi, i im funnnnnny', likesCount: 55},
+        {id: 2, message: 'hello, its my first post', likesCount: 40},
+    ]
+
+
     return (
-        <div className={s.head}>
+        <div>
 
             <div>
                 < img className={s.image}
@@ -24,8 +31,8 @@ const MyPosts = () => {
                     <button>Add</button>
                 </div>
             </div>
-            <Post message=' Hi, i im funny' Like={20}/>
-            <Post message='hello, its my first post' Like={50}/>
+            <Post message={postData[0].message} like={postData[0].likesCount}/>
+            <Post message={postData[1].message} like={postData[1].likesCount}/>
         </div>
     )
 }

@@ -10,8 +10,8 @@ const Post = (props) => {
         {props.message}
 
         <div className={d.ithem}>Post</div>
-        {props.Like}
-        <span> Like </span>
+        {props.like}
+        <span> like </span>
 
     </div>
 }

@@ -1,11 +1,13 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
-    padding: 1rem;
+    padding: 2rem;
+    background-color: blueviolet;
 
 }
 .dialogs a {
     text-decoration: none;
+
 }
 
 .messages {

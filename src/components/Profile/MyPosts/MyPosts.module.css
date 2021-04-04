@@ -1,14 +1,14 @@
 .ithem {
     color: orange;
+    padding-bottom: 1rem;
 }
 
-
-.img1profile {
-    width: 17%;
-    height:10%
-}
 .image {
     width: 6%;
     height: 10%;
     border-radius: 50%;
+}
+
+.head {
+    padding: 0.5rem;
 }

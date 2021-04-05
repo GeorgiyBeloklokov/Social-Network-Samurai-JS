@@ -1,22 +1,19 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
-    padding: 2rem;
     background-color: blueviolet;
 
 }
 .dialogs a {
     text-decoration: none;
-
+    padding: 0.3rem;
 }
 
-.messages {
-    padding: 1rem;
-}
 
 .dialogIthem a:hover,
 .dialogIthem a:active,
 .dialogIthem a.active {
-    color: red
+    color: red;
+
 }
 

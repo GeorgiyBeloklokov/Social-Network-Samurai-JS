@@ -1,16 +1,8 @@
 import React from "react";
 import f from "./Dialogs.module.css";
-import {NavLink} from "react-router-dom";
+import DialogIthem from "./DialogIthem/DialogIthem";
+import Message from "./Message/Message";
 
-const DialogIthem = (props) => {
-    let path = "/dialogs/" + props.id;
-    return <div className={f.dialog}>
-        <NavLink to={path}>{props.name}</NavLink>
-    </div>
-}
-const Message = (props) => {
-    return <div className={f.message}>{props.message}</div>
-}
 
 let dialogs = [
     {id: 1, name: 'Maria'},

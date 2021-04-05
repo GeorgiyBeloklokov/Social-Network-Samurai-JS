@@ -24,6 +24,7 @@ const App = () => {
                     <Route path='/settings'  render={ () => <Settings />}/>
                 </div>
             </div>
+
         </BrowserRouter>)
 
 }

@@ -27,7 +27,6 @@ let messages = [
 ]
 
 ReactDOM.render(
-
   <React.StrictMode>
     <App posts={posts} messages={messages} dialogs={dialogs}/>,
   </React.StrictMode>,

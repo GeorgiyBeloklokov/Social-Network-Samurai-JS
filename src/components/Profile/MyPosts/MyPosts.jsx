@@ -14,13 +14,11 @@ let postsElements = props.posts
 
     return (
         <div>
-
             <div>
                 < img className={s.image}
                       src='https://universalnews.org/wp-content/uploads/2020/05/Facebook-Avatar.jpg'
                       alt=" "/>
             </div>
-
             <div>
                 <div>
                     <div className={s.ithem}>My post</div>

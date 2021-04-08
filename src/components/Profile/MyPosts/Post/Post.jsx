@@ -5,13 +5,13 @@ const Post = (props) => {
     return <div>
         <div>
             < img className={d.image}
-                  src='https://bipbap.ru/wp-content/uploads/2017/08/0447e02caa3a98459dcc5f7b5e8051cd.jpg' alt=" "/>
+                  src= 'https://slovami.net/wp-content/uploads/2018/04/11-27.jpg' alt=" "/>
         </div>
         {props.message}
 
         <div className={d.ithem}>Post</div>
         {props.like}
-        <span> like </span>
+        <span> Likes </span>
 
     </div>
 }

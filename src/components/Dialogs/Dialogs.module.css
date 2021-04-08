@@ -3,23 +3,36 @@
     grid-template-columns: 2fr 10fr;
     background-color: blueviolet;
 
-}
-.dialogs a {
-    text-decoration: none;
-    padding: 0.3rem;
+
 }
 
+.dialogs a {
+    text-decoration: none;
+
+}
 
 .dialogIthem a:hover,
 .dialogIthem a:active,
 .dialogIthem a.active {
     color: red;
+}
+.dialogIthem a {
 
+    padding-left: 0.5rem;
 }
 
 .image {
+
     width: 20%;
     height: 20%;
-    border-radius: 35%;
-   /* padding-top: 3rem;*/
+    ;
+
 }
+.messages {
+    color: white;
+    border: 0.3px solid red;
+    padding: 1.2rem;
+}
+
+
+

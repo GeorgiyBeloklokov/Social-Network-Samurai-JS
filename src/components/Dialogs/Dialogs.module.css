@@ -17,3 +17,9 @@
 
 }
 
+.image {
+    width: 20%;
+    height: 20%;
+    border-radius: 35%;
+   /* padding-top: 3rem;*/
+}

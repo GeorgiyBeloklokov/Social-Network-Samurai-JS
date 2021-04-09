@@ -1,9 +1,17 @@
 .dialogs {
-    display: grid;
-    grid-template-columns: 2fr 10fr;
-    background-color: blueviolet;
+    display: inline-grid;
+    grid-template-columns: 13rem 9rem;
+    background-color: beige;
+}
+.rightside {
+    display: inline-grid;
+    grid-template-columns: 13rem 9rem;
+    background-color: darkred;
 
-
+}
+.rightside a {
+    text-decoration: none;
+    color: white;
 }
 
 .dialogs a {
@@ -16,23 +24,38 @@
 .dialogIthem a.active {
     color: red;
 }
-.dialogIthem a {
-
-    padding-left: 0.5rem;
-}
-
 .image {
-
+    padding-left: 0.5rem;
+    /*position: relative;*/
     width: 20%;
     height: 20%;
-    ;
-
+    border-radius:10%;
+    /*line-height: 4rem;*/
+    background-color: #fff;
+    border: 0.1rem solid #666;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -webkit-box-shadow: 2px 2px 4px #888;
+    -moz-box-shadow: 2px 2px 4px #888;
+    box-shadow: 0.1rem 0.1rem 0.2rem #888;
 }
+
 .messages {
-    color: white;
-    border: 0.3px solid red;
-    padding: 1.2rem;
+    width: 8rem;
+    height: 4rem;
+    text-align: center;
+    line-height: 4rem;
+    background-color: #fff;
+    border: 0.1rem solid #666;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    border-radius: 2rem;
+    -webkit-box-shadow: 2px 2px 4px #888;
+    -moz-box-shadow: 2px 2px 4px #888;
+    box-shadow: 0.1rem 0.1rem 0.2rem #888;
 }
 
-
+.messagesr {
+color: blue;
+}
 

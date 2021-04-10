@@ -4,10 +4,9 @@ import {NavLink} from "react-router-dom";
 import DialogIthem from "../Dialogs/DialogIthem/DialogIthem";
 
 const Navbar = (props) => {
-    /*let maRia = props.state.dialogs.0
-        .map(d => <DialogIthem url={d.url} name={d.name} id={d.id}/>);*/
+    let Maria = props.state.dialogs.slice(0,3)
+        .map(d => <DialogIthem id={d.id} name={d.name} url={d.url}  />);
     return (
-
         <nav className={s.nav}>
             <div className={s.heaDitHem + ' ' + s.active}>
             <div className={s.itHem}>
@@ -29,7 +28,7 @@ const Navbar = (props) => {
                     <NavLink to="/friends" activeClassName={s.active}>Friends</NavLink>
                 </div>
                 <div className={s.itHem} className={s.servitHem2} >
-                    <NavLink to="/friends" activeClassName={s.active}>maRia</NavLink>
+                    <NavLink to="/friends" activeClassName={s.active}>{Maria}</NavLink>
                 </div>
 
         </div>

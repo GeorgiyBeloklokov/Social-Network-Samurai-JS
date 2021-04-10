@@ -25,3 +25,16 @@
     margin: 0.8rem;
     font-size: 2rem;
 }
+.servitHem2 a {
+text-align: center;
+    font-size: 0.8rem;
+    color: mediumvioletred;
+    text-decoration: none;
+
+}
+.servitHem2,.servitHem1 a {
+    display: table-row;
+    horiz-align: center;
+    height: 1rem;
+    width: 0.7rem;
+}

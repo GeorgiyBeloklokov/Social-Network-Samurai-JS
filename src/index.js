@@ -4,10 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import state from './redux/state';
+import {addPost} from './redux/state';
+
+/*addPost ('davay rabotay');*/
 
 ReactDOM.render(
  /* <React.StrictMode>*/
-    <App state={state} />,document.getElementById('root')
+    <App state={state} addPost={addPost} />,document.getElementById('root')
   /*</React.StrictMode>*/
 );
 

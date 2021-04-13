@@ -13,8 +13,15 @@ const Dialogs = (props) => {
         .map(m => <Message message={m.message}/>);
    let messagesElementsRightSide = props.state.messagesside
         .map(m => <Message messagesside={m.message}/>);
+
+   let Add = () => {
+       let text = textSecondarea.current.value;
+       alert(text);
+   }
+   let textSecondarea = React.createRef()
     return (
         <div>
+
             <div className={f.dialogs}>
                  <div className={f.dialogIthem}>
                     {dialogsElements}
@@ -30,6 +37,12 @@ const Dialogs = (props) => {
                     <div className={f.messagesrightside} >
                         {messagesElementsRightSide}
                     </div>
+                <div>
+                    < textarea ref={textSecondarea}> </textarea>
+                </div>
+                <div>
+                    <button onClick={Add}>Add</button>
+                </div>
             </div>
         </div>
     )

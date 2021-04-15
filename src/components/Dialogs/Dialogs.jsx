@@ -1,4 +1,4 @@
-  import React from "react";
+import React from "react";
 import f from "./Dialogs.module.css";
 import DialogIthem from "./DialogIthem/DialogIthem";
 import Message from "./Message/Message";
@@ -11,34 +11,41 @@ const Dialogs = (props) => {
 
     let messagesElements = props.state.messages
         .map(m => <Message message={m.message}/>);
-   let messagesElementsRightSide = props.state.messagesside
+    let messagesElementsRightSide = props.state.messagesside
         .map(m => <Message messagesside={m.message}/>);
 
-   let Add = () => {
-       let text = textSecondarea.current.value;
-       alert(text);
-   }
-   let textSecondarea = React.createRef()
+    let Add = () => {
+        props.addMessageAreaLeftSide();
+        textSecondarea.current.value = {onPostChangemleft};
+    }
+    let textSecondarea = React.createRef();
+
+    let onPostChangemleft = () => {
+        let text = textSecondarea.current.value;
+        props.updatetextAreaLeftSide(text);
+    }
+
+
     return (
         <div>
 
             <div className={f.dialogs}>
-                 <div className={f.dialogIthem}>
+                <div className={f.dialogIthem}>
                     {dialogsElements}
-                 </div>
+                </div>
                 <div>
                     {messagesElements}
                 </div>
             </div>
             <div className={f.rightside}>
-                    <div >
-                        {dialogsElementsRightSide}
-                    </div>
-                    <div className={f.messagesrightside} >
-                        {messagesElementsRightSide}
-                    </div>
                 <div>
-                    < textarea ref={textSecondarea}> </textarea>
+                    {dialogsElementsRightSide}
+                </div>
+                <div className={f.messagesrightside}>
+                    {messagesElementsRightSide}
+                </div>
+                <div>
+                    < textarea onChange={onPostChangemleft} ref={textSecondarea} value={props.newPostMessage}> </textarea>
                 </div>
                 <div>
                     <button onClick={Add}>Add</button>

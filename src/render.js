@@ -8,7 +8,9 @@ import {addPost, updateNewPostText} from './redux/state';
 export let rerenderEntireTree = (state) => {
     ReactDOM.render(
         /* <React.StrictMode>*/
-        <App state={state} addPost={addPost} updateNewPostText={updateNewPostText} />, document.getElementById('root')
+        <App state={state} addPost={addPost}
+             updateNewPostText={updateNewPostText} />,
+        document.getElementById('root')
         /*</React.StrictMode>*/
     );
 

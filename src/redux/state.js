@@ -1,4 +1,10 @@
-import {rerenderEntireTree} from "../render";
+
+
+let rerenderEntireTree = () => {
+    console.log('State is chnged');
+
+}
+
 
 let state = {
     profilePage: {
@@ -133,6 +139,9 @@ export let updatePostNewsArea = (newsPostserve) => {
     state.dialogsPage.newsPost = newsPostserve;
 
     rerenderEntireTree(state);
+}
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer;
 }
 export default state;
 

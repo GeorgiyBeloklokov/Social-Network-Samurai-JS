@@ -12,7 +12,7 @@ import Friends from "./components/Friends/Friends";
 
 const App = (props) => {
     return (
-        <BrowserRouter>
+
             <div className='app-wrapper'>
                 <Header/>
                 < Navbar state={props.state.dialogsPage}/>
@@ -35,6 +35,6 @@ const App = (props) => {
                     <Route path='/friends' render={() => <Friends/>}/>
                 </div>
             </div>
-        </BrowserRouter>)
+        )
 }
 export default App;

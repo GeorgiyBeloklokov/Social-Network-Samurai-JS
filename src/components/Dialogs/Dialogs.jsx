@@ -14,17 +14,18 @@ const Dialogs = (props) => {
     let messagesElementsRightSide = props.state.messagesside
         .map(m => <Message messagesside={m.message}/>);
 
+
     let Add = () => {
         props.addMessageAreaLeftSide();
-        textSecondarea.current.value = {onPostChangemleft};
+        textSecondArea.current.value = {onPostChange};
     }
-    let textSecondarea = React.createRef();
 
-    let onPostChangemleft = () => {
-        let text = textSecondarea.current.value;
+    let textSecondArea = React.createRef();
+
+    let onPostChange = () => {
+        let text = textSecondArea.current.value;
         props.updatetextAreaLeftSide(text);
     }
-
 
     return (
         <div>
@@ -41,11 +42,11 @@ const Dialogs = (props) => {
                 <div>
                     {dialogsElementsRightSide}
                 </div>
-                <div className={f.messagesrightside}>
+                <div >
                     {messagesElementsRightSide}
                 </div>
                 <div>
-                    < textarea onChange={onPostChangemleft} ref={textSecondarea} value={props.newPostMessage}> </textarea>
+                    < textarea onChange={onPostChange} ref={textSecondArea} value={props.newPostMessage}> </textarea>
                 </div>
                 <div>
                     <button onClick={Add}>Add</button>

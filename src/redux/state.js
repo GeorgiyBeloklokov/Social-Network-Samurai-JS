@@ -82,7 +82,7 @@ let state = {
             {id: 4, message: 'wuggyyyyy'},
 
         ],
-        newPostMessage: 'Hello friends'
+        newPostMessage: 'Hello from state'
     },
 
     sidebar: {}
@@ -104,15 +104,16 @@ export let addPost = () => {
 
 //message area
 export let addMessageAreaLeftSide = () => {
-    let newMessageareaPost = {
-        message: state.dialogsPage.newPostMessage,
+    let newwPost = {
+        id: 5,
+        message: state.dialogsPage.newPostMessage
     };
-    state.dialogsPage.messagesside.push(newMessageareaPost);
+    state.dialogsPage.messagesside.push(newwPost);
     rerenderEntireTree(state);
 }
 
     export let updatetextAreaLeftSide = (newTextmessageArea) => {
-        state.dialogsPage.newPostTextMessagesSideLeft = newTextmessageArea;
+        state.dialogsPage.newPostMessage = newTextmessageArea;
         rerenderEntireTree(state);
     };
 

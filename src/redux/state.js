@@ -82,7 +82,8 @@ let state = {
             {id: 4, message: 'wuggyyyyy'},
 
         ],
-        newPostMessage: 'Hello from state'
+        newPostMessage: 'Hello from state',
+        newsPost : 'Hello from News state'
     },
 
     sidebar: {}
@@ -97,10 +98,10 @@ export let addPost = () => {
     state.profilePage.posts.push(newPost);
     rerenderEntireTree(state);
 }
-    export let updateNewPostText = (newText) => {
-        state.profilePage.newPostText = newText;
-        rerenderEntireTree(state);
-    };
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+};
 
 //message area
 export let addMessageAreaLeftSide = () => {
@@ -109,14 +110,29 @@ export let addMessageAreaLeftSide = () => {
         message: state.dialogsPage.newPostMessage
     };
     state.dialogsPage.messagesside.push(newwPost);
+    state.dialogsPage.newPostMessage = ' ';
     rerenderEntireTree(state);
 }
 
-    export let updatetextAreaLeftSide = (newTextmessageArea) => {
-        state.dialogsPage.newPostMessage = newTextmessageArea;
-        rerenderEntireTree(state);
+export let updatetextAreaLeftSide = (newTextmessageArea) => {
+    state.dialogsPage.newPostMessage = newTextmessageArea;
+    rerenderEntireTree(state);
+};
+
+//News area
+export let addPostNewsTextArea = () => {
+    let newsPostserv= {
+        id: 5,
+        message: state.dialogsPage.newsPost
     };
+    state.dialogsPage.messages.push(newsPostserv);
+    state.dialogsPage.newsPost = ' ';
+    rerenderEntireTree(state);
+}
+export let updatePostNewsArea = (newsPostserve) => {
+    state.dialogsPage.newsPost = newsPostserve;
 
-
-    export default state;
+    rerenderEntireTree(state);
+}
+export default state;
 

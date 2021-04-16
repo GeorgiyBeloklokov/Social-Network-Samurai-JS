@@ -15,7 +15,7 @@ const App = (props) => {
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header/>
-                < Navbar state={props.state.dialogsPage}  />
+                < Navbar state={props.state.dialogsPage}/>
                 <div className='app-wrapper-content'>
                     <Route path='/dialogIthem'
                            render={() => <Dialogs state={props.state.dialogsPage}
@@ -26,7 +26,10 @@ const App = (props) => {
                            render={() => <Profile state={props.state.profilePage}
                                                   updateNewPostText={props.updateNewPostText}
                                                   addPost={props.addPost}/>}/>
-                    <Route path='/news' render={() => <News/>}/>
+                    <Route path='/news' render={() => <News state={props.state.dialogsPage}
+                                                            newsPost={props.state.dialogsPage.newsPost}
+                                                            addPostNewsNextArea={props.addPostNewsTextArea}
+                                                            updatePostNewsArea={props.updatePostNewsArea}/>}/>
                     <Route path='/music' render={() => <Music/>}/>
                     <Route path='/settings' render={() => <Settings/>}/>
                     <Route path='/friends' render={() => <Friends/>}/>

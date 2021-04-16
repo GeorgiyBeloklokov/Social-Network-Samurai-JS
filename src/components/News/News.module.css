@@ -1,4 +1,24 @@
-.img {
-
+.news {
+    display: grid;
+    grid-template-columns: 14rem 7rem;
+    grid-area: c;
+    background-color: beige;
     color: red;
+}
+/*
+.newsDailogs  {
+    height: 14rem;
+    width: 7rem;
+}
+
+.newsMessages {
+    height: 14rem;
+    width: 7rem;
+}*/
+.textAtea, .add {
+   margin-top: 2rem;
+
+}
+.add {
+padding: 0.5rem;
 }

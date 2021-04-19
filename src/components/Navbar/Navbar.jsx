@@ -10,7 +10,7 @@ const Navbar = (props) => {
         <nav className={s.nav}>
             <div className={s.heaDitHem + ' ' + s.active}>
             <div className={s.itHem}>
-                <NavLink to="/profile" >Profile</NavLink>
+                <NavLink to="/profile" activeClassName={s.active} >Profile</NavLink>
             </div>
             <div className={s.itHem}>
                 <NavLink to="/dialogIthem" activeClassName={s.active}>Messages</NavLink>

@@ -5,7 +5,6 @@ let rerenderEntireTree = () => {
 
 }
 
-
 let state = {
     profilePage: {
         posts: [

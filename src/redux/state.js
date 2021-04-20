@@ -8,7 +8,7 @@ let store = {
                 {id: 3, message: 'balablabla', likesCount: 30},
                 {id: 4, message: 'yoyoyoy', likesCount: 60},
             ],
-            newPostText: 'enter your text'
+            newPostText: 'Hello from profilePage '
         },
 
         dialogsPage: {
@@ -95,50 +95,52 @@ let store = {
      addPost  ()  {
         let newPost = {
             id: 5,
-            message: store._state.profilePage.newPostText,
+            message: this._state.profilePage.newPostText,
             likesCount: 0
         }
-        store._state.profilePage.posts.push(newPost);
-        store.rerenderEntireTree(store._state);
+        this._state.profilePage.posts.push(newPost);
+         this._state.profilePage.newPostText = ' ';
+        this._callSubscriber(this._state);
     },
     updateNewPostText  (newText) {
-        store._state.profilePage.newPostText = newText;
-        store.rerenderEntireTree(store._state);
+        this._state.profilePage.newPostText = newText;
+        this._callSubscriber(this._state);
+
     },
 
 //message area
    addMessageAreaLeftSide  ()  {
         let newwPost = {
             id: 5,
-            message: store._state.dialogsPage.newPostMessage
+            message: this._state.dialogsPage.newPostMessage
         };
-        store._state.dialogsPage.messagesside.push(newwPost);
-       store._state.dialogsPage.newPostMessage = ' ';
-        store.rerenderEntireTree(store._state);
+        this._state.dialogsPage.messagesside.push(newwPost);
+       this._state.dialogsPage.newPostMessage = ' ';
+        this._callSubscriber(this._state);
     },
 
      updatetextAreaLeftSide (newTextmessageArea)  {
-        store._state.dialogsPage.newPostMessage = newTextmessageArea;
-        store.rerenderEntireTree(store._state);
+        this._state.dialogsPage.newPostMessage = newTextmessageArea;
+        this._callSubscriber(this._state);
     },
 
 //News area
      addPostNewsTextArea  ()  {
         let newsPostserv= {
             id: 5,
-            message: store._state.dialogsPage.newsPost
+            message: this._state.dialogsPage.newsPost
         };
-        store._state.dialogsPage.messages.push(newsPostserv);
-        store._state.dialogsPage.newsPost = ' ';
-       store.rerenderEntireTree(store._state);
+        this._state.dialogsPage.messages.push(newsPostserv);
+        this._state.dialogsPage.newsPost = ' ';
+       this._callSubscriber(this._state);
     },
      updatePostNewsArea  (newsPostserve)  {
-        store._state.dialogsPage.newsPost = newsPostserve;
+        this._state.dialogsPage.newsPost = newsPostserve;
 
-        store.rerenderEntireTree(store._state);
+        this._callSubscriber(this._state);
     },
      subscribe(observer) {
-        store.rerenderEntireTree = observer;
+        this._callSubscriber = observer;
     },
 }
 export default store;

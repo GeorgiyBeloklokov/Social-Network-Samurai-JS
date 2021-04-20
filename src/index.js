@@ -8,15 +8,15 @@ import store from "./redux/state";
 
 
 
-let rerenderEntireTree = () => {
+let _callSubscriber = () => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={store.getState()}/>
+            <App store={store} state={store.getState()}/>
         </BrowserRouter>,
         document.getElementById('root'));
 }
-rerenderEntireTree(store._state);
-store.subscribe (rerenderEntireTree);
+_callSubscriber(store.getState());
+store.subscribe (_callSubscriber);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

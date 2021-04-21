@@ -1,6 +1,9 @@
-
 const ADD_POST = 'ADD--POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_MESSAGE_AREA_LEFT_SIDE = 'ADD-MESSAGE-AREA-LEFT-SIDE';
+const UPDATE_TEXT_AREA_LEFT_SIDE = 'UPDATE-TEXT-AREA-LEFT-SIDE';
+const ADD_POST_NEWS_TEXT_AREA = 'ADD-POST-NEWS-AREA';
+const UPDATE_POST_NEWS_TEXT_AREA = 'UPDATE-POST-NEWS-AREA';
 
 
 let store = {
@@ -101,7 +104,7 @@ let store = {
 
     dispatch(action) {
         //Post area
-        if (action.type === ADD_POST ) {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 5,
                 message: this._state.profilePage.newPostText,
@@ -115,7 +118,7 @@ let store = {
             this._callSubscriber(this._state);
         }
         //message area
-        if (action.type === 'ADD-MESSAGE-AREA-LEFT-SIDE') {
+        if (action.type === ADD_MESSAGE_AREA_LEFT_SIDE) {
             let newwPost = {
                 id: 5,
                 message: this._state.dialogsPage.newPostMessage
@@ -123,12 +126,12 @@ let store = {
             this._state.dialogsPage.messagesside.push(newwPost);
             this._state.dialogsPage.newPostMessage = ' ';
             this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-TEXT-AREA-LEFT-SIDE' ) {
+        } else if (action.type === UPDATE_TEXT_AREA_LEFT_SIDE) {
             this._state.dialogsPage.newPostMessage = action.newTextmessageArea;
             this._callSubscriber(this._state);
         }
         //News area
-        if (action.type === 'ADD-POST-NEWS-TEXT-AREA') {
+        if (action.type === ADD_POST_NEWS_TEXT_AREA) {
             let newsPostserv = {
                 id: 5,
                 message: this._state.dialogsPage.newsPost
@@ -136,16 +139,23 @@ let store = {
             this._state.dialogsPage.messages.push(newsPostserv);
             this._state.dialogsPage.newsPost = ' ';
             this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-POST-NEWS-AREA') {
+        } else if (action.type === UPDATE_POST_NEWS_TEXT_AREA) {
             this._state.dialogsPage.newsPost = action.newsPostservis;
             this._callSubscriber(this._state);
         }
     }
 }
-
- export const addPostActionCreator = () => ({type: ADD_POST})
+//Post area
+export const addPostActionCreator = () => ({type: ADD_POST})
 export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
-
-
+// Messages area
+export const addMessageAreaLeftSideActionCreator = () => ({type: ADD_MESSAGE_AREA_LEFT_SIDE})
+export const updateTextAreaLeftSideActionCreator = (text) => ({
+    type: UPDATE_TEXT_AREA_LEFT_SIDE,
+    newTextmessageArea: text
+})
+// News area
+export const addPostNewsTextAreaActionCreator = () => ({type: ADD_POST_NEWS_TEXT_AREA})
+export const updatePostNewsAreaActionCreator = (text) => ({type: UPDATE_POST_NEWS_TEXT_AREA, newsPostservis: text})
 
 export default store;

@@ -2,6 +2,9 @@ import React from "react";
 import f from "./Dialogs.module.css";
 import DialogIthem from "./DialogIthem/DialogIthem";
 import Message from "./Message/Message";
+import {addMessageAreaLeftSideActionCreator, updateTextAreaLeftSideActionCreator} from "../../redux/state";
+
+
 
 const Dialogs = (props) => {
     let dialogsElements = props.state.dialogs
@@ -17,17 +20,15 @@ const Dialogs = (props) => {
     let textSecondArea = React.createRef();
 
     let Add = () => {
-        props.dispatch ({ type:'ADD-MESSAGE-AREA-LEFT-SIDE'});
+        props.dispatch (addMessageAreaLeftSideActionCreator() );
         textSecondArea.current.value = {onPostChange};
     }
 
     let onPostChange = () => {
         let text = textSecondArea.current.value;
-        let action = { type:'UPDATE-TEXT-AREA-LEFT-SIDE', newTextmessageArea: text};
+        let action = (updateTextAreaLeftSideActionCreator(text) );
         props.dispatch (action);
     }
-
-
 
     return (
         <div>

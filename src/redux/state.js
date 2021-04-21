@@ -1,6 +1,6 @@
 
 let store = {
-     _state: {
+    _state: {
         profilePage: {
             posts: [
                 {id: 1, message: 'Hi, i im funnnnnny', likesCount: 55},
@@ -82,65 +82,75 @@ let store = {
                 {id: 4, message: 'wuggyyyyy'},
 
             ],
-            newPostMessage: 'Hello from _state',
-            newsPost : 'Hello from News _state'
+            newPostMessage: 'Hello from _state for Messages',
+            newsPost: 'Hello from News _state'
         },
 
         sidebar: {}
     },
-    getState () {
-         return this._state;
+    getState() {
+        return this._state;
     },
-//post area
-     addPost  ()  {
-        let newPost = {
-            id: 5,
-            message: this._state.profilePage.newPostText,
-            likesCount: 0
-        }
-        this._state.profilePage.posts.push(newPost);
-         this._state.profilePage.newPostText = ' ';
-        this._callSubscriber(this._state);
-    },
-    updateNewPostText  (newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-
+    subscribe(observer) {
+        this._callSubscriber = observer;
     },
 
-//message area
-   addMessageAreaLeftSide  ()  {
-        let newwPost = {
-            id: 5,
-            message: this._state.dialogsPage.newPostMessage
-        };
-        this._state.dialogsPage.messagesside.push(newwPost);
-       this._state.dialogsPage.newPostMessage = ' ';
-        this._callSubscriber(this._state);
-    },
-
-     updatetextAreaLeftSide (newTextmessageArea)  {
-        this._state.dialogsPage.newPostMessage = newTextmessageArea;
-        this._callSubscriber(this._state);
-    },
-
-//News area
-     addPostNewsTextArea  ()  {
-        let newsPostserv= {
+/*
+    addPostNewsTextArea() {
+        let newsPostserv = {
             id: 5,
             message: this._state.dialogsPage.newsPost
         };
         this._state.dialogsPage.messages.push(newsPostserv);
         this._state.dialogsPage.newsPost = ' ';
-       this._callSubscriber(this._state);
-    },
-     updatePostNewsArea  (newsPostserve)  {
-        this._state.dialogsPage.newsPost = newsPostserve;
-
         this._callSubscriber(this._state);
     },
-     subscribe(observer) {
-        this._callSubscriber = observer;
-    },
+    updatePostNewsArea(newsPostserve) {
+        this._state.dialogsPage.newsPost = newsPostserve;
+        this._callSubscriber(this._state);
+    },*/
+
+    dispatch(action) {
+        //Post area
+        if (action.type === 'ADD--POST') {
+            let newPost = {
+                id: 5,
+                message: this._state.profilePage.newPostText,
+                likesCount: 0
+            };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = ' ';
+            this._callSubscriber(this._state);
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        }
+        //message area
+        if (action.type === 'ADD-MESSAGE-AREA-LEFT-SIDE') {
+            let newwPost = {
+                id: 5,
+                message: this._state.dialogsPage.newPostMessage
+            };
+            this._state.dialogsPage.messagesside.push(newwPost);
+            this._state.dialogsPage.newPostMessage = ' ';
+            this._callSubscriber(this._state);
+        } else if (action.type === 'UPDATE-TEXT-AREA-LEFT-SIDE' ) {
+            this._state.dialogsPage.newPostMessage = action.newTextmessageArea;
+            this._callSubscriber(this._state);
+        }
+        //News area
+        if (action.type === 'ADD-POST-NEWS-TEXT-AREA') {
+            let newsPostserv = {
+                id: 5,
+                message: this._state.dialogsPage.newsPost
+            };
+            this._state.dialogsPage.messages.push(newsPostserv);
+            this._state.dialogsPage.newsPost = ' ';
+            this._callSubscriber(this._state);
+        } else if (action.type === 'UPDATE-POST-NEWS-AREA') {
+            this._state.dialogsPage.newsPost = action.newsPostservis;
+            this._callSubscriber(this._state);
+        }
+    }
 }
 export default store;

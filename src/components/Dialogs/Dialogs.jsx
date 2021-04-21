@@ -2,6 +2,7 @@ import React from "react";
 import f from "./Dialogs.module.css";
 import DialogIthem from "./DialogIthem/DialogIthem";
 import Message from "./Message/Message";
+
 const Dialogs = (props) => {
     let dialogsElements = props.state.dialogs
         .map(d => <DialogIthem url={d.url} name={d.name} id={d.id}/>);
@@ -13,18 +14,20 @@ const Dialogs = (props) => {
     let messagesElementsRightSide = props.state.messagesside
         .map(m => <Message messagesside={m.message}/>);
 
+    let textSecondArea = React.createRef();
 
     let Add = () => {
-        props.addMessageAreaLeftSide();
+        props.dispatch ({ type:'ADD-MESSAGE-AREA-LEFT-SIDE'});
         textSecondArea.current.value = {onPostChange};
     }
 
-    let textSecondArea = React.createRef();
-
     let onPostChange = () => {
         let text = textSecondArea.current.value;
-        props.updatetextAreaLeftSide(text);
+        let action = { type:'UPDATE-TEXT-AREA-LEFT-SIDE', newTextmessageArea: text};
+        props.dispatch (action);
     }
+
+
 
     return (
         <div>

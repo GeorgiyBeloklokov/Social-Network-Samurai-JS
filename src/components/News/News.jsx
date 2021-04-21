@@ -14,19 +14,21 @@ const News = (props) => {
     let newTextarea = React.createRef();
 
     let Add = () => {
-        props.addPostNewsNextArea();
+        props.dispatch({ type: 'ADD-POST-NEWS-TEXT-AREA'});
         newTextarea.current.value = {onPostChange};
     }
+
 let onPostChange =()=> {
         let text = newTextarea.current.value;
-        props.updatePostNewsArea(text);
+    let action = { type: 'UPDATE-POST-NEWS-AREA', newsPostservis: text};
+    props.dispatch(action);
 }
 
     return (
         <div className={f.news}>
-            <div className={f.newsDailogs}>{dialogsElements}</div>
-             <div className={f.newsMessages}>{messagesElements}</div>
-            <div className={f.textAtea}><textarea onChange={onPostChange} ref={newTextarea} value={props.newsPost}> </textarea></div>
+            <div >{dialogsElements}</div>
+             <div>{messagesElements}</div>
+            <div className={f.textArea}><textarea onChange={onPostChange} ref={newTextarea} value={props.newsPost}> </textarea></div>
             <div>
                 <button className={f.add} onClick={Add}>Add</button>
             </div>

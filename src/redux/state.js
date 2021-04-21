@@ -95,21 +95,6 @@ let store = {
         this._callSubscriber = observer;
     },
 
-/*
-    addPostNewsTextArea() {
-        let newsPostserv = {
-            id: 5,
-            message: this._state.dialogsPage.newsPost
-        };
-        this._state.dialogsPage.messages.push(newsPostserv);
-        this._state.dialogsPage.newsPost = ' ';
-        this._callSubscriber(this._state);
-    },
-    updatePostNewsArea(newsPostserve) {
-        this._state.dialogsPage.newsPost = newsPostserve;
-        this._callSubscriber(this._state);
-    },*/
-
     dispatch(action) {
         //Post area
         if (action.type === 'ADD--POST') {
@@ -153,4 +138,18 @@ let store = {
         }
     }
 }
+
+ export const addPostActionCreator = () => {
+    return {
+        type: 'ADD--POST'
+    }
+}
+export const updateNewPostTextActionCreator = (text) => {
+    return {
+        type: 'UPDATE-NEW-POST-TEXT', newText: text
+    }
+}
+
+
+
 export default store;

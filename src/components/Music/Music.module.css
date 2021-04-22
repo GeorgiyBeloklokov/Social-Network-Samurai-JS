@@ -2,3 +2,21 @@
 
     color: red;
 }
+
+.music {
+    display: grid;
+    grid-template-columns: 14rem 7rem;
+    grid-area: c;
+    background-color: beige;
+    color: red;
+}
+
+
+.textArea, .add {
+    margin-top: 2rem;
+
+}
+
+.add {
+    padding: 0.5rem;
+}

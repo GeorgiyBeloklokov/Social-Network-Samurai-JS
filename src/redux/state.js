@@ -4,6 +4,8 @@ const ADD_MESSAGE_AREA_LEFT_SIDE = 'ADD-MESSAGE-AREA-LEFT-SIDE';
 const UPDATE_TEXT_AREA_LEFT_SIDE = 'UPDATE-TEXT-AREA-LEFT-SIDE';
 const ADD_POST_NEWS_TEXT_AREA = 'ADD-POST-NEWS-AREA';
 const UPDATE_POST_NEWS_TEXT_AREA = 'UPDATE-POST-NEWS-AREA';
+const ADD_POST_MUSIC_TEXT_AREA = 'ADD-POST-MUSIC-TEXT-AREA';
+const UPDATE_POST_MUSIC_TEXT_AREA = 'UPDATE-POST-MUSIC-TEXT-AREA';
 
 
 let store = {
@@ -90,7 +92,8 @@ let store = {
 
             ],
             newPostMessage: 'Hello from _state for Messages',
-            newsPost: 'Hello from News _state'
+            newsPost: 'Hello from News _state',
+            newPostMusic: 'Hi from Music state'
         },
 
         sidebar: {}
@@ -143,8 +146,22 @@ let store = {
             this._state.dialogsPage.newsPost = action.newsPostservis;
             this._callSubscriber(this._state);
         }
+        // Music area
+        if (action.type === 'ADD-POST-MUSIC-TEXT-AREA') {
+            let musicPostserv = {
+                id: 6,
+                message: this._state.dialogsPage.newPostMusic
+            };
+            this._state.dialogsPage.messages.push(musicPostserv);
+            this._state.dialogsPage.newPostMusic = ' ';
+            this._callSubscriber(this._state);
+        } else if (action.type === 'UPDATE-POST-MUSIC-TEXT-AREA') {
+            this._state.dialogsPage.newPostMusic = action.newPostMusicServ;
+            this._callSubscriber(this._state);
+        }
     }
 }
+
 //Post area
 export const addPostActionCreator = () => ({type: ADD_POST})
 export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
@@ -157,5 +174,9 @@ export const updateTextAreaLeftSideActionCreator = (text) => ({
 // News area
 export const addPostNewsTextAreaActionCreator = () => ({type: ADD_POST_NEWS_TEXT_AREA})
 export const updatePostNewsAreaActionCreator = (text) => ({type: UPDATE_POST_NEWS_TEXT_AREA, newsPostservis: text})
+//Music area
+export const addPostMusicTextAreaActionCreator = () => ({type: ADD_POST_MUSIC_TEXT_AREA})
+export const updatePostMusicTextArea = (text) => ({type: UPDATE_POST_MUSIC_TEXT_AREA, newPostMusicServ: text})
+
 
 export default store;

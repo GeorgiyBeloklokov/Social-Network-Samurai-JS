@@ -24,11 +24,13 @@ const App = (props) => {
                                               newPostMessage={props.state.dialogsPage.newPostMessage}/>}/>
                 <Route path='/profile'
                        render={() => <Profile state={props.state.profilePage}
-                                              dispatch={props.store.dispatch.bind(props.store)} />}/>
+                                              dispatch={props.store.dispatch.bind(props.store)}/>}/>
                 <Route path='/news' render={() => <News state={props.state.dialogsPage}
                                                         dispatch={props.store.dispatch.bind(props.store)}
                                                         newsPost={props.state.dialogsPage.newsPost}/>}/>
-                <Route path='/music' render={() => <Music/>}/>
+                <Route path='/music' render={() => <Music state={props.state.dialogsPage}
+                                                          dispatch={props.store.dispatch.bind(props.store)}
+                                                          newPostMusic={props.state.dialogsPage.newPostMusic}/>}/>
                 <Route path='/settings' render={() => <Settings/>}/>
                 <Route path='/friends' render={() => <Friends/>}/>
             </div>

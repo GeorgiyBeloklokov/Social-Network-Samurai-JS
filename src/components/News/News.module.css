@@ -5,20 +5,12 @@
     background-color: beige;
     color: red;
 }
-/*
-.newsDailogs  {
-    height: 14rem;
-    width: 7rem;
-}
 
-.newsMessages {
-    height: 14rem;
-    width: 7rem;
-}*/
 .textArea, .add {
-   margin-top: 2rem;
+    margin-top: 2rem;
 
 }
+
 .add {
-padding: 0.5rem;
+    padding: 0.5rem;
 }

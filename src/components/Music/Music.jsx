@@ -4,7 +4,7 @@ import DialogIthem from "../Dialogs/DialogIthem/DialogIthem";
 import Message from "../Dialogs/Message/Message";
 import {
     addPostMusicTextAreaActionCreator, updatePostMusicTextArea,
-} from "../../redux/state";
+} from "../../redux/music-reducer";
 
 const Music = (props) => {
 

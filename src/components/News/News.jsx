@@ -2,7 +2,7 @@ import React from "react";
 import f from "./News.module.css";
 import DialogIthem from "../Dialogs/DialogIthem/DialogIthem";
 import Message from "../Dialogs/Message/Message";
-import {addPostNewsTextAreaActionCreator, updatePostNewsAreaActionCreator} from "../../redux/state";
+import {addPostNewsTextAreaActionCreator, updatePostNewsAreaActionCreator} from "../../redux/news-reducer";
 
 const News = (props) => {
     let dialogsElements = props.state.dialogs

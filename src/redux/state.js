@@ -1,11 +1,10 @@
-const ADD_POST = 'ADD--POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const ADD_MESSAGE_AREA_LEFT_SIDE = 'ADD-MESSAGE-AREA-LEFT-SIDE';
-const UPDATE_TEXT_AREA_LEFT_SIDE = 'UPDATE-TEXT-AREA-LEFT-SIDE';
-const ADD_POST_NEWS_TEXT_AREA = 'ADD-POST-NEWS-AREA';
-const UPDATE_POST_NEWS_TEXT_AREA = 'UPDATE-POST-NEWS-AREA';
-const ADD_POST_MUSIC_TEXT_AREA = 'ADD-POST-MUSIC-TEXT-AREA';
-const UPDATE_POST_MUSIC_TEXT_AREA = 'UPDATE-POST-MUSIC-TEXT-AREA';
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import newsReducer from "./news-reducer";
+import musicReducer from "./music-reducer";
+import sidebarReducer from "./sidebar-reducer";
+
+
 
 
 let store = {
@@ -106,77 +105,13 @@ let store = {
     },
 
     dispatch(action) {
-        //Post area
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 5,
-                message: this._state.profilePage.newPostText,
-                likesCount: 0
-            };
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = ' ';
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-        }
-        //message area
-        if (action.type === ADD_MESSAGE_AREA_LEFT_SIDE) {
-            let newwPost = {
-                id: 5,
-                message: this._state.dialogsPage.newPostMessage
-            };
-            this._state.dialogsPage.messagesside.push(newwPost);
-            this._state.dialogsPage.newPostMessage = ' ';
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_TEXT_AREA_LEFT_SIDE) {
-            this._state.dialogsPage.newPostMessage = action.newTextmessageArea;
-            this._callSubscriber(this._state);
-        }
-        //News area
-        if (action.type === ADD_POST_NEWS_TEXT_AREA) {
-            let newsPostserv = {
-                id: 5,
-                message: this._state.dialogsPage.newsPost
-            };
-            this._state.dialogsPage.messages.push(newsPostserv);
-            this._state.dialogsPage.newsPost = ' ';
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_POST_NEWS_TEXT_AREA) {
-            this._state.dialogsPage.newsPost = action.newsPostservis;
-            this._callSubscriber(this._state);
-        }
-        // Music area
-        if (action.type === 'ADD-POST-MUSIC-TEXT-AREA') {
-            let musicPostserv = {
-                id: 6,
-                message: this._state.dialogsPage.newPostMusic
-            };
-            this._state.dialogsPage.messages.push(musicPostserv);
-            this._state.dialogsPage.newPostMusic = ' ';
-            this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-POST-MUSIC-TEXT-AREA') {
-            this._state.dialogsPage.newPostMusic = action.newPostMusicServ;
-            this._callSubscriber(this._state);
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.dialogsPage = newsReducer(this._state.dialogsPage, action);
+        this._state.dialogsPage = musicReducer(this._state.dialogsPage, action);
+        /*this._state.dialogsPage = sidebarReducer(this._state.sidebar, action);*/
+        this._callSubscriber(this._state);
     }
 }
-
-//Post area
-export const addPostActionCreator = () => ({type: ADD_POST})
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
-// Messages area
-export const addMessageAreaLeftSideActionCreator = () => ({type: ADD_MESSAGE_AREA_LEFT_SIDE})
-export const updateTextAreaLeftSideActionCreator = (text) => ({
-    type: UPDATE_TEXT_AREA_LEFT_SIDE,
-    newTextmessageArea: text
-})
-// News area
-export const addPostNewsTextAreaActionCreator = () => ({type: ADD_POST_NEWS_TEXT_AREA})
-export const updatePostNewsAreaActionCreator = (text) => ({type: UPDATE_POST_NEWS_TEXT_AREA, newsPostservis: text})
-//Music area
-export const addPostMusicTextAreaActionCreator = () => ({type: ADD_POST_MUSIC_TEXT_AREA})
-export const updatePostMusicTextArea = (text) => ({type: UPDATE_POST_MUSIC_TEXT_AREA, newPostMusicServ: text})
-
 
 export default store;

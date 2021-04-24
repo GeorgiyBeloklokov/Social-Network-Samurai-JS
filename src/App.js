@@ -13,7 +13,6 @@ import Friends from "./components/Friends/Friends";
 
 const App = (props) => {
     return (
-
         <div className='app-wrapper'>
             <Header/>
             < Navbar state={props.state.dialogsPage}/>
@@ -25,9 +24,9 @@ const App = (props) => {
                 <Route path='/profile'
                        render={() => <Profile state={props.state.profilePage}
                                               dispatch={props.store.dispatch.bind(props.store)}/>}/>
-                <Route path='/news' render={() => <News state={props.state.dialogsPage}
+                <Route path='/news' render={() => <News state={props.state.newsPage}
                                                         dispatch={props.store.dispatch.bind(props.store)}
-                                                        newsPost={props.state.dialogsPage.newsPost}/>}/>
+                                                        newsPost={props.state.newsPage.newsPost}/>}/>
                 <Route path='/music' render={() => <Music state={props.state.dialogsPage}
                                                           dispatch={props.store.dispatch.bind(props.store)}
                                                           newPostMusic={props.state.dialogsPage.newPostMusic}/>}/>

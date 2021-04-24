@@ -1,7 +1,18 @@
 const ADD_POST = 'ADD--POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
-const profileReducer = (state, action) => {
+let inicialState  = {
+    posts: [
+        {id: 1, message: 'Hi, i im funnnnnny', likesCount: 55},
+        {id: 2, message: 'hello, its my first post', likesCount: 40},
+        {id: 3, message: 'balablabla', likesCount: 30},
+        {id: 4, message: 'yoyoyoy', likesCount: 60},
+    ],
+    newPostText: 'Hello from profilePage '
+
+};
+
+const profileReducer = (state = inicialState, action) => {
 
 //Post area
     switch (action.type) {

@@ -27,9 +27,9 @@ const App = (props) => {
                 <Route path='/news' render={() => <News state={props.state.newsPage}
                                                         dispatch={props.store.dispatch.bind(props.store)}
                                                         newsPost={props.state.newsPage.newsPost}/>}/>
-                <Route path='/music' render={() => <Music state={props.state.dialogsPage}
+                <Route path='/music' render={() => <Music state={props.state.musicPage}
                                                           dispatch={props.store.dispatch.bind(props.store)}
-                                                          newPostMusic={props.state.dialogsPage.newPostMusic}/>}/>
+                                                          newPostMusic={props.state.musicPage.newPostMusic}/>}/>
                 <Route path='/settings' render={() => <Settings/>}/>
                 <Route path='/friends' render={() => <Friends/>}/>
             </div>

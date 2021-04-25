@@ -72,8 +72,7 @@ let inicialState = {
         {id: 4, message: 'wuggyyyyy'},
 
     ],
-    newPostMessage: 'Hello from _state for Messages',
-    newsPost: 'Hello from News _state',
+
     newPostMusic: 'Hi from Music state'
 };
 

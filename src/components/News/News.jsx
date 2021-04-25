@@ -5,6 +5,7 @@ import Message from "../Dialogs/Message/Message";
 import {addPostNewsTextAreaActionCreator, updatePostNewsAreaActionCreator} from "../../redux/news-reducer";
 
 const News = (props) => {
+    debugger;
     let dialogsElements = props.state.dialogs
         .map(d => <DialogIthem url={d.url} name={d.name} id={d.id}/>);
 

@@ -1,10 +1,10 @@
 const ADD_POST_NEWS_TEXT_AREA = 'ADD-POST-NEWS-TEXT-AREA';
 const UPDATE_POST_NEWS_TEXT_AREA = 'UPDATE-POST-NEWS-TEXT-AREA';
 
-let iniciolState = {
-    newsPage: {
-        newsPost: 'Hello from News realstate',
-    },
+let inicialState = {
+
+    newsPost: 'Hello News realstate',
+
     dialogs: [
         {
             id: 1,
@@ -80,7 +80,7 @@ let iniciolState = {
 
 
 
-const newsReducer = (state = iniciolState, action) => {
+const newsReducer = (state = inicialState, action) => {
     switch (action.type) {
         case ADD_POST_NEWS_TEXT_AREA:
             let newsPostserv = {
@@ -88,7 +88,7 @@ const newsReducer = (state = iniciolState, action) => {
                 message: state.newsPost
             };
             state.messages.push(newsPostserv);
-            state.messages.newsPost = ' ';
+            state.newsPost = ' ';
             return state;
         case UPDATE_POST_NEWS_TEXT_AREA:
             state.newsPost = action.newsPostServis;

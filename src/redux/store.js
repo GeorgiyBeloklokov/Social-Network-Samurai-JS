@@ -93,12 +93,7 @@ let store = {
 
 
         },
-        newsPage: {
-            newsPost: 'Hello from News _state',
-    },
-        musicPage: {
-            newPostMusic: 'Hi from Music state',
-        },
+
         sidebar: {}
     },
     getState() {

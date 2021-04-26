@@ -8,6 +8,7 @@ import {addMessageAreaLeftSideActionCreator, updateTextAreaLeftSideActionCreator
 
 
 const Dialogs = (props) => {
+    debugger;
     let dialogsElements = props.state.dialogs
         .map(d => <DialogIthem url={d.url} name={d.name} id={d.id}/>);
     let dialogsElementsRightSide = props.state.personsside

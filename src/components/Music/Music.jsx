@@ -2,29 +2,21 @@ import React from "react";
 import f from "./Music.module.css";
 import DialogIthem from "../Dialogs/DialogIthem/DialogIthem";
 import Message from "../Dialogs/Message/Message";
-import {
-    addPostMusicTextAreaActionCreator, updatePostMusicTextArea,
-} from "../../redux/music-reducer";
 
 const Music = (props) => {
-
-    let dialogsElements = props.state.dialogs
+    let dialogsElements = props.dialogs
         .map(d => <DialogIthem url={d.url} name={d.name} id={d.id}/>);
 
-    let messagesElements = props.state.messages
+    let messagesElements = props.messages
         .map(m => <Message message={m.message}/>);
 
-
-
-
     let Add = (e) => {
-        props.dispatch(addPostMusicTextAreaActionCreator());
-        e.target.value = {onPostChange};
+        props.addPostMusic();
     }
 
     let onPostChange = (e) => {
         let text = e.target.value;
-        props.dispatch(updatePostMusicTextArea(text));
+        props.updateNewPostMusic(text);
     }
 
     return (
@@ -40,6 +32,4 @@ const Music = (props) => {
         </div>
     )
 }
-
-
 export default Music;

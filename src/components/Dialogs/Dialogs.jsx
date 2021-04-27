@@ -16,14 +16,14 @@ const Dialogs = (props) => {
     let messagesElementsRightSide = props.messagesside
         .map(m => <Message messagesside={m.message}/>);
 
-    let textSecondArea = React.createRef();
+
 
     let AddDialogPost = () => {
         props.addDialogPost();
     }
 
-    let onPostChange = () => {
-        let text = textSecondArea.current.value;
+    let onPostChange = (e) => {
+        let text = e.target.value;
         props.updateNewPostMessage(text) ;
     }
 
@@ -46,7 +46,7 @@ const Dialogs = (props) => {
                     {messagesElementsRightSide}
                 </div>
                 <div>
-                    < textarea onChange={onPostChange} ref={textSecondArea} value={props.newPostMessage}> </textarea>
+                    < textarea onChange={onPostChange} value={props.newPostMessage}> </textarea>
                 </div>
                 <div>
                     <button onClick={AddDialogPost}>Add</button>

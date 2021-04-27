@@ -9,6 +9,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 
 const App = (props) => {
@@ -18,11 +19,9 @@ const App = (props) => {
             < Navbar state={props.state.dialogsPage}/>
             <div className='app-wrapper-content'>
                 <Route path='/dialogIthem'
-                       render={() => <Dialogs state={props.state.dialogsPage} dispatch={props.store.dispatch.bind(props.store)}
-                                              newPostMessage={props.state.dialogsPage.newPostMessage}/>}/>
+                       render={() => <DialogsContainer store={props.store}/>}/>
                 <Route path='/profile'
-                       render={() => <Profile  store={props.store}
-                                              />}/>
+                       render={() => <Profile  store={props.store}/>}/>
 
                 <Route path='/news' render={() => <News state={props.state.newsPage}
                                                         newsPost={props.state.newsPage.newsPost}/>}/>

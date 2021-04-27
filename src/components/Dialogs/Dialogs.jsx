@@ -2,34 +2,29 @@ import React from "react";
 import f from "./Dialogs.module.css";
 import DialogIthem from "./DialogIthem/DialogIthem";
 import Message from "./Message/Message";
-import {addMessageAreaLeftSideActionCreator, updateTextAreaLeftSideActionCreator} from "../../redux/dialogs-reducer";
-
-
 
 
 const Dialogs = (props) => {
-    debugger;
-    let dialogsElements = props.state.dialogs
+
+    let dialogsElements = props.dialogs
         .map(d => <DialogIthem url={d.url} name={d.name} id={d.id}/>);
-    let dialogsElementsRightSide = props.state.personsside
+    let dialogsElementsRightSide = props.personsside
         .map(d => <DialogIthem url={d.url} name={d.name} id={d.id}/>);
 
-    let messagesElements = props.state.messages
+    let messagesElements = props.messages
         .map(m => <Message message={m.message}/>);
-    let messagesElementsRightSide = props.state.messagesside
+    let messagesElementsRightSide = props.messagesside
         .map(m => <Message messagesside={m.message}/>);
 
     let textSecondArea = React.createRef();
 
-    let Add = () => {
-        props.dispatch (addMessageAreaLeftSideActionCreator() );
-        textSecondArea.current.value = {onPostChange};
+    let AddDialogPost = () => {
+        props.addDialogPost();
     }
 
     let onPostChange = () => {
         let text = textSecondArea.current.value;
-        let action = (updateTextAreaLeftSideActionCreator(text) );
-        props.dispatch (action);
+        props.updateNewPostMessage(text) ;
     }
 
     return (
@@ -54,7 +49,7 @@ const Dialogs = (props) => {
                     < textarea onChange={onPostChange} ref={textSecondArea} value={props.newPostMessage}> </textarea>
                 </div>
                 <div>
-                    <button onClick={Add}>Add</button>
+                    <button onClick={AddDialogPost}>Add</button>
                 </div>
             </div>
         </div>

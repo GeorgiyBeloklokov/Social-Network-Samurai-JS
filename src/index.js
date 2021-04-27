@@ -5,20 +5,23 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 import store from "./redux/redux-store";
+import StoreContext from "./StoreContext";
 
 let callSubscriber = (state) => {
 
     ReactDOM.render(
         <BrowserRouter>
-            <App store={store}  state={state} dispatch={store.dispatch.bind(store)} />
+            <StoreContext.Provider value = {store}>
+                <App store={store} state={state} dispatch={store.dispatch.bind(store)}/>
+            </StoreContext.Provider>
         </BrowserRouter>,
         document.getElementById('root'));
 }
 callSubscriber(store.getState());
-store.subscribe( () => {
+store.subscribe(() => {
     let state = store.getState()
-    callSubscriber (state);
-} );
+    callSubscriber(state);
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

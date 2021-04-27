@@ -1,25 +1,34 @@
 import React from "react";
 import {addPostNewsTextAreaActionCreator, updatePostNewsAreaActionCreator} from "../../redux/news-reducer";
 import News from "./News";
+import StoreContext from "../../StoreContext";
 
 
-const NewsContainer = (props) => {
+const NewsContainer = () => {
+    return (
+        <StoreContext.Consumer>
+            {
+                (store) => {
+                    let state = store.getState();
 
-    let state = props.store.getState();
 
-    let addPostNewsContainer = () => {
-        props.store.dispatch(addPostNewsTextAreaActionCreator());
+                    let addPostNewsContainer = () => {
+                        store.dispatch(addPostNewsTextAreaActionCreator());
 
-    }
+                    }
 
-    let onPostChange = (text) => {
-        props.store.dispatch(updatePostNewsAreaActionCreator(text));
-    }
+                    let onPostChange = (text) => {
+                        store.dispatch(updatePostNewsAreaActionCreator(text));
+                    }
 
-    return (<News
-            addPostNews={addPostNewsContainer} newsPost={state.newsPage.newsPost} updateNewsPost={onPostChange}
-            dialogs={state.newsPage.dialogs}
-            messages={state.newsPage.messages}/>
+                    return (<News
+                        addPostNews={addPostNewsContainer} newsPost={state.newsPage.newsPost}
+                        updateNewsPost={onPostChange}
+                        dialogs={state.newsPage.dialogs}
+                        messages={state.newsPage.messages}/>)
+                }
+            }
+        </StoreContext.Consumer>
     )
 }
 

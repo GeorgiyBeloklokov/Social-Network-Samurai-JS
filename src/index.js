@@ -12,7 +12,7 @@ let callSubscriber = (state) => {
     ReactDOM.render(
         <BrowserRouter>
             <StoreContext.Provider value = {store}>
-                <App store={store} state={state} dispatch={store.dispatch.bind(store)}/>
+                <App store={store} state={state} dispatch={store.dispatch.bind(store)}  />
             </StoreContext.Provider>
         </BrowserRouter>,
         document.getElementById('root'));

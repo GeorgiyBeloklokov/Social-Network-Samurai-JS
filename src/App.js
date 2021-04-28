@@ -11,7 +11,7 @@ import NewsContainer from "./components/News/NewsContainer";
 import MusicContainer from "./components/Music/MusicContainer";
 
 
-const App = (props) => {
+const App = () => {
     return (
         <div className='app-wrapper'>
             <Header/>
@@ -21,8 +21,8 @@ const App = (props) => {
                        render={() => <DialogsContainer  />}/>
                 <Route path='/profile'
                        render={() => <Profile />}/>
-                <Route path='/news' render={() => <NewsContainer store={props.store}/>}/>
-                <Route path='/music' render={() => <MusicContainer store={props.store}/>}/>
+                <Route path='/news' render={() => <NewsContainer />}/>
+                <Route path='/music' render={() => <MusicContainer />}/>
                 <Route path='/settings' render={() => <Settings/>}/>
                 <Route path='/friends' render={() => <Friends/>}/>
             </div>

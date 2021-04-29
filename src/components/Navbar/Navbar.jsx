@@ -3,10 +3,8 @@ import s from "./Navbar.module.css";
 import {NavLink} from "react-router-dom";
 
 const Navbar = (props) => {
-
-    let friendsNavbarFooter = () => {
+    let friendsNavbarFooter =
         props.friendsNavbarFooter();
-    }
     return (
         <nav className={s.nav}>
             <div className={s.heaDitHem + ' ' + s.active}>

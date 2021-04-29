@@ -14,20 +14,24 @@ let inicialState  = {
 
 const profileReducer = (state = inicialState, action) => {
 
-//Post area
     switch (action.type) {
-        case ADD_POST:
+        case ADD_POST: {
             let newPost = {
                 id: 5,
                 message: state.newPostText,
                 likesCount: 0
             };
-            state.posts.push(newPost);
-            state.newPostText = ' ';
-            return state;
-        case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newText;
-            return state;
+            let stateCopy = {...state}; //create shallow copy
+            stateCopy.posts = [...state.posts]; // create deep copy in state.posts
+            stateCopy.posts.push(newPost);
+            stateCopy.newPostText = ' ';
+            return stateCopy;                // return copy of state!
+        }
+        case UPDATE_NEW_POST_TEXT: {
+            let stateCopy = {...state};// create shalllow copy
+            stateCopy.newPostText = action.newText; //dont need copy posts  because no needing reescribe dom
+            return stateCopy;       // return copy of state!
+            }
         default:
             return state;
     }

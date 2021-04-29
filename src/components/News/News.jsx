@@ -10,8 +10,6 @@ const News = (props) => {
     let messagesElements = props.messages
         .map(m => <Message message={m.message}/>);
 
-
-
     let addPostNews = () => {
         props.addPostNews();
     }

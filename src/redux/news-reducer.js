@@ -78,27 +78,29 @@ let inicialState = {
 
 };
 
-
-
 const newsReducer = (state = inicialState, action) => {
     switch (action.type) {
-        case ADD_POST_NEWS_TEXT_AREA:
+        case ADD_POST_NEWS_TEXT_AREA: {
             let newsPostserv = {
                 id: 7,
                 message: state.newsPost
             };
-            state.messages.push(newsPostserv);
-            state.newsPost = ' ';
-            return state;
-        case UPDATE_POST_NEWS_TEXT_AREA:
-            state.newsPost = action.newsPostServis;
-            return state;
+            let stateCopy = {...state};
+            stateCopy.messages = [...stateCopy.messages];
+            stateCopy.messages.push(newsPostserv);
+            stateCopy.newsPost = ' ';
+            return stateCopy;
+        }
+        case UPDATE_POST_NEWS_TEXT_AREA: {
+            let stateCopy = {...state};
+            stateCopy.newsPost = action.newsPostServis;
+            return stateCopy;
+        }
         default:
             return state;
     }
 }
 export const addPostNewsTextAreaActionCreator = () => ({type: ADD_POST_NEWS_TEXT_AREA})
 export const updatePostNewsAreaActionCreator = (text) => ({type: UPDATE_POST_NEWS_TEXT_AREA, newsPostServis: text})
-
 
 export default newsReducer;

@@ -77,19 +77,20 @@ let inicialState = {
 
 
 const dialogsReducer = (state = inicialState, action) => {
-let stateCopy;
+
     switch (action.type) {
-        case ADD_MESSAGE_AREA_LEFT_SIDE:
-            stateCopy = {...state };
-            stateCopy.messagesside.push({ id: 6, message: state.newPostMessage});
-            stateCopy.newPostMessage = ' ';
-            return stateCopy;
-
         case UPDATE_TEXT_AREA_LEFT_SIDE:
-            stateCopy = {...state, newPostMessage: action.newTextmessageArea};
-
-            return stateCopy;
-
+            return {
+                ...state,
+                newPostMessage: action.text
+            }
+        case ADD_MESSAGE_AREA_LEFT_SIDE:
+            let text = state.newPostMessage
+            return {
+                ...state,
+                newPostMessage: ' ',
+                messagesside: [...state.messagesside, {id: 6, message: text}]
+            };
         default:
             return state;
     }
@@ -97,7 +98,7 @@ let stateCopy;
 
 export const addMessageAreaLeftSideActionCreator = () => ({type: ADD_MESSAGE_AREA_LEFT_SIDE})
 export const updateTextAreaLeftSideActionCreator = (text) => ({
-    type: UPDATE_TEXT_AREA_LEFT_SIDE, newTextmessageArea: text
+    type: UPDATE_TEXT_AREA_LEFT_SIDE, text: text
 })
 export default dialogsReducer;
 

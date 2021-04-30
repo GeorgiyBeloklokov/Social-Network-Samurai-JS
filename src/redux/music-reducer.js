@@ -78,30 +78,22 @@ let inicialState = {
 
 
 const musicReducer = (state = inicialState, action) => {
-
-    // Music area
     switch (action.type) {
-        case ADD_POST_MUSIC_TEXT_AREA: {
-            let musicPostserv = {
-                id: 9,
-                message: state.newPostMusic
-            };
-            let stateCopy = {...state};
-            stateCopy.messages = [...state.messages];
-            stateCopy.messages.push(musicPostserv);
-            stateCopy.newPostMusic = ' ';
-            return stateCopy;
-        }
-        case UPDATE_POST_MUSIC_TEXT_AREA: {
-            let stateCopy = {...state};
-            stateCopy.newPostMusic = action.newPostMusicServ;
-            return stateCopy;
-        }
+        case ADD_POST_MUSIC_TEXT_AREA:
+            return {
+                ...state, newPostMusic: ' ', messages: [...state.messages,
+                    {
+                        id: 9,
+                        message: state.newPostMusic
+                    }
+                ]
+            }
+        case UPDATE_POST_MUSIC_TEXT_AREA:
+            return {...state, newPostMusic: action.newPostMusicServ}
         default:
             return state;
     }
 }
 export const addPostMusicTextAreaActionCreator = () => ({type: ADD_POST_MUSIC_TEXT_AREA})
 export const updatePostMusicTextArea = (text) => ({type: UPDATE_POST_MUSIC_TEXT_AREA, newPostMusicServ: text})
-
 export default musicReducer;

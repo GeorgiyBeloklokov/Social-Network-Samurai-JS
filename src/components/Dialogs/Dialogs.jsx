@@ -6,15 +6,17 @@ import Message from "./Message/Message";
 
 const Dialogs = (props) => {
 
+
+
     let dialogsElements = props.dialogs
-        .map(d => <DialogIthem url={d.url} name={d.name} id={d.id}/>);
+        .map(d => <DialogIthem url={d.url} key= {d.id} name={d.name} id={d.id}/>);
     let dialogsElementsRightSide = props.personsside
-        .map(d => <DialogIthem url={d.url} name={d.name} id={d.id}/>);
+        .map(d => <DialogIthem url={d.url} key= {d.id} name={d.name} id={d.id}/>);
 
     let messagesElements = props.messages
-        .map(m => <Message message={m.message}/>);
+        .map(m => <Message key= {m.id} message={m.message}/>);
     let messagesElementsRightSide = props.messagesside
-        .map(m => <Message messagesside={m.message}/>);
+        .map(m => <Message key= {m.id} messagesside={m.message}/>);
 
 
 

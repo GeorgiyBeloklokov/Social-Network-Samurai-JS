@@ -6,10 +6,11 @@ const DialogIthem = (props) => {
     let path = "/dialogIthem/" + props.id;
     return (
         <div>
-            <div className={f.dialog}>
-                <NavLink to={path}>{props.name} </NavLink>
+            <div >
+                <NavLink to={path}> {props.name} </NavLink>
             </div>
             <div>
+
                 < img className={f.image}
                       src={props.url} alt=" "/>
             </div>

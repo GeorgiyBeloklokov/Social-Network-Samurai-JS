@@ -8,7 +8,7 @@ const Navbar = (props) => {
     return (
         <nav className={s.nav}>
             <div className={s.heaDitHem + ' ' + s.active}>
-                <div className={s.itHem}>
+                <div  className={s.itHem}>
                     <NavLink to="/profile" activeClassName={s.active}>Profile</NavLink>
                 </div>
                 <div className={s.itHem}>

@@ -17,7 +17,7 @@
 .heaDitHem a:hover,
 .heaDitHem a:active,
 .heaDitHem a.active {
-    color: #d06821
+    color: #72360b
 }
 .servitHem1 a {
     color: white;
@@ -26,15 +26,15 @@
     font-size: 2rem;
 }
 .servitHem2 a {
-text-align: center;
+    display: inline;
     font-size: 0.8rem;
     color: mediumvioletred;
     text-decoration: none;
 
 }
-.servitHem2,.servitHem1 a {
-    display: table-row;
+/*.servitHem2,.servitHem1  {
+    display: inline;
     horiz-align: center;
-    height: 1rem;
+    height: 3rem;
     width: 0.7rem;
-}
+}*/

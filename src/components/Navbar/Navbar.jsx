@@ -29,9 +29,9 @@ const Navbar = (props) => {
                 <div  className={s.servitHem1}>
                     <NavLink to="/friends" activeClassName={s.active}>Friends</NavLink>
                 </div>
-                <div  className={s.servitHem2}>
+                <span  className={s.servitHem2}>
                     <NavLink to="/friends" activeClassName={s.active}>{friendsNavbarFooter}</NavLink>
-                </div>
+                </span>
 
             </div>
         </nav>

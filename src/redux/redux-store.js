@@ -4,6 +4,7 @@ import musicReducer from "./music-reducer";
 import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import navbarReducer from "./navbar-reducer";
+import usersReducer from "./users-reducer";
 
 
 let reducers = combineReducers({
@@ -11,6 +12,7 @@ let reducers = combineReducers({
     dialogsPage: dialogsReducer,
     newsPage: newsReducer,
     musicPage: musicReducer,
+    usersPage: usersReducer,
     navbarPage: navbarReducer
 });
 

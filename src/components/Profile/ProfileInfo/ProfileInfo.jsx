@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./ProfileInfo.module.css";
-
+import userPhoto from "../../../assets/images/8841.jpg"
 const ProfileInfo = () => {
     return (
         <div>
@@ -11,7 +11,7 @@ const ProfileInfo = () => {
             </div>
             <div className={s.p}>
                 < img className={s.img1profile}
-                      src='https://universalnews.org/wp-content/uploads/2020/05/Facebook-Avatar.jpg' alt=" "/>
+                      src={userPhoto} alt=" "/>
 
             </div>
             <div className={s.p}>ava = descripcoion</div>

@@ -5,7 +5,7 @@ import Message from "../Dialogs/Message/Message";
 
 const News = (props) => {
     let dialogsElements = props.dialogs
-        .map(d => <DialogIthem url={d.url} name={d.name} id={d.id}/>);
+        .map(d => <DialogIthem url={d.url} name={d.name} key={d.id} id={d.id}/>);
 
     let messagesElements = props.messages
         .map(m => <Message message={m.message}/>);

@@ -1,40 +1,44 @@
 import React from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
+import UserPhoto from "../../../assets/images/8841.jpg"
 
-const  MyPosts = (props) => {
-    let postsElements = props.posts
-        .map(p => <Post message={p.message} like={p.likesCount}/>);
+class MyPosts extends React.Component {
 
-    let AddPost = () => {
-        props.addPost();
-    }
+    render() {
+        this.postsElements = this.props.posts
+            .map(p => <Post message={p.message} like={p.likesCount} key={p.id}/>);
 
-    let onPostChange = (e) => {
-        let text = e.target.value;
-        props.updateNewPostText(text);
-    }
+        this.AddPost = () => {
+            this.props.addPost();
+        }
 
-    return (
-        <div>
-            <div>
-                < img className={s.image}
-                      src='https://universalnews.org/wp-content/uploads/2020/05/Facebook-Avatar.jpg'
-                      alt=" "/>
-            </div>
+        this.onPostChange = (e) => {
+            let text = e.target.value;
+            this.props.updateNewPostText(text);
+        }
+        return (
             <div>
                 <div>
-                    <div className={s.ithem}>My post</div>
+                    < img className={s.image}
+                          src={UserPhoto}
+                          alt=" "/>
                 </div>
                 <div>
-                    <textarea onChange={onPostChange} value={props.newPostText}> </textarea>
+                    <div>
+                        <div className={s.ithem}>My post</div>
+                    </div>
+                    <div>
+                        <textarea onChange={this.onPostChange} value={this.props.newPostText}> </textarea>
+                    </div>
+                    <div>
+                        <button onClick={this.AddPost}>Add post</button>
+                    </div>
                 </div>
-                <div>
-                    <button onClick={AddPost}>Add post</button>
-                </div>
+                {this.postsElements}
             </div>
-            {postsElements}
-        </div>
-    )
+        )
+    }
 }
+
 export default MyPosts;

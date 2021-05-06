@@ -12,7 +12,7 @@ const Navbar = (props) => {
                     <NavLink to="/profile" activeClassName={s.active}>Profile</NavLink>
                 </div>
                 <div className={s.itHem}>
-                    <NavLink to="/dialogIthem" activeClassName={s.active}>Messages</NavLink>
+                    <NavLink to="/dialogs" activeClassName={s.active}>Messages</NavLink>
                 </div>
                 <div className={s.itHem}>
                     <NavLink to="/news" activeClassName={s.active}>News</NavLink>
@@ -29,9 +29,9 @@ const Navbar = (props) => {
                 <div  className={s.servitHem1}>
                     <NavLink to="/friends" activeClassName={s.active}>Friends</NavLink>
                 </div>
-                <span  className={s.servitHem2}>
+                <div  className={s.servitHem2}>
                     <NavLink to="/friends" activeClassName={s.active}>{friendsNavbarFooter}</NavLink>
-                </span>
+                </div>
 
             </div>
         </nav>

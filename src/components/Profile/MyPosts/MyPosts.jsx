@@ -4,11 +4,8 @@ import Post from "./Post/Post";
 import UserPhoto from "../../../assets/images/8841.jpg"
 
 class MyPosts extends React.Component {
-
-    render() {
-        this.postsElements = this.props.posts
-            .map(p => <Post message={p.message} like={p.likesCount} key={p.id}/>);
-
+    constructor(props) {
+        super(props);
         this.AddPost = () => {
             this.props.addPost();
         }
@@ -17,6 +14,12 @@ class MyPosts extends React.Component {
             let text = e.target.value;
             this.props.updateNewPostText(text);
         }
+    }
+
+    render() {
+        this.postsElements = this.props.posts
+            .map(p => <Post message={p.message} like={p.likesCount} key={p.id}/>);
+
         return (
             <div>
                 <div>

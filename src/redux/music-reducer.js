@@ -83,7 +83,7 @@ const musicReducer = (state = inicialState, action) => {
             return {
                 ...state, newPostMusic: ' ', messages: [...state.messages,
                     {
-                        id: 9,
+                        id: 5,
                         message: state.newPostMusic
                     }
                 ]

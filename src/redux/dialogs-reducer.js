@@ -89,7 +89,7 @@ const dialogsReducer = (state = inicialState, action) => {
             return {
                 ...state,
                 newPostMessage: ' ',
-                messagesside: [...state.messagesside, {id: 6, message: text}]
+                messagesside: [...state.messagesside, {id: 5, message: text}]
             };
         default:
             return state;

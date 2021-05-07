@@ -82,7 +82,7 @@ const newsReducer = (state = inicialState, action) => {
     switch (action.type) {
         case ADD_POST_NEWS_TEXT_AREA: {
             let newsPostserv = {
-                id: 7,
+                id: 5,
                 message: state.newsPost
             };
             let stateCopy = {...state};

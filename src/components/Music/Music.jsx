@@ -22,7 +22,8 @@ class Music extends React.Component {
             .map(d => <DialogIthem url={d.url} name={d.name} key={d.id} id={d.id}/>);
 
         this.messagesElements = this.props.messages
-            .map(m => <Message message={m.message}/>);
+            .map(m => <Message message={m.message} key={m.id}/>);
+
         return (
             <div className={f.music}>
                 <div>{this.dialogsElements}</div>

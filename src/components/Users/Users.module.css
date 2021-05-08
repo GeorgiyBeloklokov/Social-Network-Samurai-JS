@@ -1,4 +1,8 @@
-.photoUser {
+.userPhoto {
     width: 2.5rem;
     height: 3.5rem;
+}
+.selectedPage {
+font-weight: bold;
+    color: darkblue;
 }

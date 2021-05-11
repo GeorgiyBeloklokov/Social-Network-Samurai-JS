@@ -14,6 +14,7 @@ class Users extends React.Component {
             });
         }
     }
+
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(response => {
@@ -21,6 +22,7 @@ class Users extends React.Component {
             this.props.setUsers(response.data.items);
         });
     }
+
     render() {
         let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
         let pages = [];
@@ -30,16 +32,15 @@ class Users extends React.Component {
         }
         return <div>
             <div>
-                {pages.slice(0,5).map(p => {
+                {pages.slice(0, 5).map(p => {
                     return <button className={this.props.currentPage === p && styles.selectedPage}
-                                   onClick={(e) => {
-                                       this.onPageChanged(p);  }}>{p}</button>
-
+                                   onClick={() => {
+                                       this.onPageChanged(p);
+                                   }}>{p}</button>
                 })}
 
             </div>
-            {
-                this.props.users.map(u => <div key={u.id}>
+            {this.props.users.map(u => <div key={u.id}>
              <span>
                 <div>
                       <img src={u.photos.small != null ? u.photos.small : userPhoto} className={styles.userPhoto}

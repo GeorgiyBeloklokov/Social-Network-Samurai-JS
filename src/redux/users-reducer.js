@@ -6,7 +6,7 @@ const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 let inicialState = {
     users: [ ],
     pageSize: 5,
-    totalUsersCount: 20,
+    totalUsersCount: 0,
     currentPage: 1,
     newPostText: 'Hello from profilePage '
 };

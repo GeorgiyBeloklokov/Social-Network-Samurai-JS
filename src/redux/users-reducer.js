@@ -2,13 +2,15 @@ const TOGGLE_FOLLOW = 'TOGGLE_FOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let inicialState = {
     users: [ ],
     pageSize: 5,
     totalUsersCount: 0,
     currentPage: 1,
-    newPostText: 'Hello from profilePage '
+    newPostText: 'Hello from profilePage ',
+    isFetching: 0
 };
 const usersReducer = (state = inicialState, action) => {
     switch (action.type) {
@@ -34,13 +36,18 @@ const usersReducer = (state = inicialState, action) => {
             return {
                 ...state, totalUsersCount: action.count
             }
+        case TOGGLE_IS_FETCHING:
+            return {
+                ...state, isFetching: action.isFetching
+            }
         default:
             return state;
     }
 }
 
 export const toggleFollow = (userID) => ({type: TOGGLE_FOLLOW, userID})
-export const setUsersAC = (users) => ({type: SET_USERS, users})
-export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
-export const setTotalUsersCountAC = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count:totalUsersCount})
+export const setUsers = (users) => ({type: SET_USERS, users})
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
+export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
+export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count:totalUsersCount})
 export default usersReducer;

@@ -1,7 +1,6 @@
 import React from "react";
 import './App.css';
 import Header from "./components/Header/Header";
-import Profile from "./components/Profile/Profile";
 import {Route} from "react-router-dom";
 import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
@@ -10,6 +9,7 @@ import NewsContainer from "./components/News/NewsContainer";
 import MusicContainer from "./components/Music/MusicContainer";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
 import UsersContainer from "./components/Users/Users.Container";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 
 const App = () => {
@@ -21,7 +21,7 @@ const App = () => {
                 <Route path='/dialogs'
                        render={() => <DialogsContainer  />}/>
                 <Route path='/profile'
-                       render={() => <Profile />}/>
+                       render={() => <ProfileContainer />}/>
                 <Route path='/news' render={() => <NewsContainer />}/>
                 <Route path='/music' render={() => <MusicContainer />}/>
                 <Route path='/settings' render={() => <Settings/>}/>

@@ -12,7 +12,7 @@ let Users = (props)=> {
 
     return <div>
     <div>
-    {pages.slice(0, 5).map(p => {
+    {pages.slice(0, 10).map(p => {
             return <button className={props.currentPage === p && styles.selectedPage}
                            onClick={() => {
                                props.onPageChanged(p);

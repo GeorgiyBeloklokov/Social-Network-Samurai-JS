@@ -5,6 +5,7 @@ import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import navbarReducer from "./navbar-reducer";
 import usersReducer from "./users-reducer";
+import authReducer from "./auth-reducer";
 
 
 let reducers = combineReducers({
@@ -13,7 +14,8 @@ let reducers = combineReducers({
     newsPage: newsReducer,
     musicPage: musicReducer,
     usersPage: usersReducer,
-    navbarPage: navbarReducer
+    navbarPage: navbarReducer,
+    auth: authReducer
 });
 
 let store = createStore(reducers);

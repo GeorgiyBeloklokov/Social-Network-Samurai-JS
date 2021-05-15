@@ -1,6 +1,5 @@
 import React from "react";
 import './App.css';
-import Header from "./components/Header/Header";
 import {Route} from "react-router-dom";
 import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
@@ -10,12 +9,13 @@ import MusicContainer from "./components/Music/MusicContainer";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
 import UsersContainer from "./components/Users/Users.Container";
 import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 
 const App = () => {
     return (
         <div className='app-wrapper'>
-            <Header/>
+            <HeaderContainer />
             < NavbarContainer />
             <div className='app-wrapper-content'>
                 <Route path='/dialogs'

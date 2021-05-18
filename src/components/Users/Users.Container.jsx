@@ -1,50 +1,30 @@
 import {connect} from "react-redux";
-import {
-    setCurrentPage,
-    setTotalUsersCount,
-    setUsers,
-    toggleFollow,
-    toggleIsFetching
-} from "../../redux/users-reducer";
+import {setCurrentPage, setTotalUsersCount, setUsers, toggleFollow, toggleIsFetching} from "../../redux/users-reducer";
 import React from "react";
-import * as axios from "axios";
 import Users from "./Users";
 import Preloader from "../Preloader/Preloader";
+import {getUsers} from "../../api/api";
 
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-
         this.props.toggleIsFetching (true);
-        if (this.props.users.length === 0) {
-            axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
-
-                withCredentials: true,
-
-            } ).then(response => {
+        getUsers (this.props.currentPage, this.props.pageSize).then(data => {
                 this.props.toggleIsFetching (false);
-                this.props.setUsers(response.data.items);
-                this.props.setTotalUsersCount(response.data.totalCount);
+                this.props.setUsers(data.items);
+                this.props.setTotalUsersCount(data.totalCount);
             });
         }
-    }
+
 
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
         this.props.toggleIsFetching (true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
-            withCredentials: true,
-        } ).then(response => {
+        getUsers (pageNumber, this.props.pageSize).then(data => {
             this.props.toggleIsFetching (false);
-            this.props.setUsers(response.data.items);
+            this.props.setUsers(data.items);
         });
     }
-
-   /* postFollow = () => {
-        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/id=${this.props.profilePage.profile.userId}`).then(response => {
-            this.props.toggleFollow(response.data.resultCode);
-        });
-    }*/
 
 
 

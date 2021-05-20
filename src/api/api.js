@@ -22,17 +22,12 @@ export const usersAPI = {
         });
     },
 
-
     postUsers (id) {
         return instance.post(`/follow/${id}`, {}, {})
             .then(response => {
                 return response.data;
             });
     }
-
-
-
-
 }
 
 

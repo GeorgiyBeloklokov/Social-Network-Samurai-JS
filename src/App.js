@@ -10,6 +10,7 @@ import NavbarContainer from "./components/Navbar/NavbarContainer";
 import UsersContainer from "./components/Users/Users.Container";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
                 <Route path='/settings' render={() => <Settings/>}/>
                 <Route path='/users' render={() => <UsersContainer />}/>
                 <Route path='/friends' render={() => <Friends/>}/>
+                <Route path='/login' render={() => <Login />}/>
             </div>
         </div>
     )

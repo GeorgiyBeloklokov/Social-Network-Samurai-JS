@@ -9,7 +9,8 @@ let mapStateToProps = (state) => {
         messages: state.dialogsPage.messages,
         personsside: state.dialogsPage.personsside,
         messagesside: state.dialogsPage.messagesside,
-        newPostMessage: state.dialogsPage.newPostMessage
+        newPostMessage: state.dialogsPage.newPostMessage,
+        isAuth: state.auth.isAuth
     }
 }
 

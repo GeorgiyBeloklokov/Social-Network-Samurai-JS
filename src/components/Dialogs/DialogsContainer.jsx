@@ -1,7 +1,8 @@
-
 import {addMessageAreaLeftSideActionCreator, updateTextAreaLeftSideActionCreator} from "../../redux/dialogs-reducer";
-import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
+import React from "react";
+import {WithAuthRedirect} from "../hoc/WithAuthRedirect";
+import Dialogs from "./Dialogs";
 
 let mapStateToProps = (state) => {
     return {
@@ -9,10 +10,10 @@ let mapStateToProps = (state) => {
         messages: state.dialogsPage.messages,
         personsside: state.dialogsPage.personsside,
         messagesside: state.dialogsPage.messagesside,
-        newPostMessage: state.dialogsPage.newPostMessage,
-        isAuth: state.auth.isAuth
+        newPostMessage: state.dialogsPage.newPostMessage
     }
 }
+
 
 let mapDispatchToProps = (dispatch) => {
     return {
@@ -25,5 +26,8 @@ let mapDispatchToProps = (dispatch) => {
         }
     }
 }
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+
+let AuthRedirectComponent = WithAuthRedirect(Dialogs);
+
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
 export default DialogsContainer;

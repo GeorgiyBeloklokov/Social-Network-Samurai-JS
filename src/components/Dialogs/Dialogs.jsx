@@ -2,7 +2,6 @@ import React from "react";
 import f from "./Dialogs.module.css";
 import DialogIthem from "./DialogIthem/DialogIthem";
 import Message from "./Message/Message";
-import {Redirect} from "react-router-dom"
 
 class Dialogs extends React.Component {
     constructor(props) {
@@ -27,7 +26,6 @@ class Dialogs extends React.Component {
             .map(m => <Message key={m.id} message={m.message}/>);
         this.messagesElementsRightSide = this.props.messagesside
             .map(m => <Message key={m.id} messagesside={m.message}/>);
-        if (!this.props.isAuth) return <Redirect to = {"/login"}/>;
 
         return (
             <div>

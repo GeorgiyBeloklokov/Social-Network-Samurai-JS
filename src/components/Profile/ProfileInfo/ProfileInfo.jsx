@@ -3,6 +3,7 @@ import s from "./ProfileInfo.module.css";
 import Preloader from "../../Preloader/Preloader";
 import NeedJob from "../../../assets/images/NeedJob.png"
 import NoNeedJob from "../../../assets/images/DontNeedJob.jpeg"
+import ProfileStatus from "./ProfileStatus"
 
 const ProfileInfo = (props) => {
 
@@ -11,16 +12,17 @@ const ProfileInfo = (props) => {
     }
     return (
         <div>
-            <div>
+           {/* <div>
                 <img className={s.image1}
                      src='https://fainaidea.com/wp-content/uploads/2020/05/f8a4c90d00ce2e5684c3bf47c4a6ce17.jpg'
                      alt=" "/>
-            </div>
+            </div>*/}
             <div className={s.p}>
                 < img className={s.img1profile}
                       src={props.profile.photos.large} alt=" "/>
+                <ProfileStatus status = "Hello my friends" />
             </div>
-            <div className={s.p}> {'Обо мне:'} {props.profile.aboutMe} </div>
+            <div className={s.z}> {'Обо мне:'} {props.profile.aboutMe} </div>
             <div> { 'Поиск работы :'}  {props.profile.lookingForAJob === true ? (<img className={s.needjob} src={NeedJob} alt=" "/>)
                  : (<img className={s.needjob} src={NoNeedJob} alt=" "/>)
             }

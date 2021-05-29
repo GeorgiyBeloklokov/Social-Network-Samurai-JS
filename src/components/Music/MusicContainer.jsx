@@ -1,12 +1,13 @@
-
 import {
     addPostMusicTextAreaActionCreator, updatePostMusicTextArea,
 } from "../../redux/music-reducer";
 import Music from "./Music";
 import {connect} from "react-redux";
+import {compose} from "redux";
+import {WithAuthRedirect} from "../hoc/WithAuthRedirect";
 
 
-let mapStateToProps = (state)=> {
+let mapStateToProps = (state) => {
     return {
         dialogs: state.musicPage.dialogs,
         messages: state.musicPage.messages,
@@ -25,5 +26,5 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const MusicContainer = connect (mapStateToProps,mapDispatchToProps)(Music)
-export default MusicContainer;
+export default compose(WithAuthRedirect, connect(mapStateToProps, mapDispatchToProps))(Music);
+

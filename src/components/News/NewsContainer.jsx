@@ -2,6 +2,8 @@
 import {addPostNewsTextAreaActionCreator, updatePostNewsAreaActionCreator} from "../../redux/news-reducer";
 import News from "./News";
 import {connect} from "react-redux";
+import {compose} from "redux";
+import {WithAuthRedirect} from "../hoc/WithAuthRedirect";
 
 
 let mapStateToProps = (state) => {
@@ -24,5 +26,6 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const NewsContainer = connect (mapStateToProps, mapDispatchToProps)(News);
-export default NewsContainer;
+export default compose (WithAuthRedirect,connect (mapStateToProps, mapDispatchToProps))(News);
+
+

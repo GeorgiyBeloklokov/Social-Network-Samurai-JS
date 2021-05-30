@@ -1,6 +1,6 @@
 import * as axios from "axios";
 
-const instance = axios.create ({
+const instance = axios.create({
     withCredentials: true,
     headers: {
         "API-KEY": "abb8171d-3b1d-4668-92be-94602855208a"
@@ -9,35 +9,51 @@ const instance = axios.create ({
 })
 
 export const usersAPI = {
-    getUsers (currentPage, pageSize) {
+    getUsers(currentPage, pageSize) {
         /*if (props.users.length === 0)*/
         return instance.get(`users?page=${currentPage}&count=${pageSize}`, {}).then(response => {
             return response.data;
         });
     },
 
-    deleteUsers (id) {
+    deleteUsers(id) {
         return instance.delete(`/follow/${id}`, {}).then(response => {
             return response.data;
         });
     },
 
-    postUsers (id) {
+    postUsers(id) {
         return instance.post(`/follow/${id}`, {}, {})
             .then(response => {
                 return response.data;
             });
     },
 
-    getProfile (userId) {
+    getProfile(userId) {
+        console.warn('Warning - obsolete method. Use profileApi object')
+        return profileAPI.getProfile(userId);
+    }
+
+}
+
+export const profileAPI = {
+    getProfile(userId) {
         return instance.get(`/profile/` + userId);
+    },
+
+    getStatus(userId) {
+        return instance.get(`profile/status/` + userId);
+    },
+
+    updateStatus(status) {
+        return instance.put(`profile/status/`, {status: status});
     }
 
 }
 
 export const authAPI = {
     me() {
-        return instance.get(`auth/me`)
+        return instance.get(`auth/me`);
 
     }
 

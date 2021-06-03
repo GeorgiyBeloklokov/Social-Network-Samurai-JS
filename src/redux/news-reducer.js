@@ -1,9 +1,6 @@
 const ADD_POST_NEWS_TEXT_AREA = 'ADD-POST-NEWS-TEXT-AREA';
-const UPDATE_POST_NEWS_TEXT_AREA = 'UPDATE-POST-NEWS-TEXT-AREA';
 
 let inicialState = {
-
-    newsPost: 'Hello News realstate',
 
     dialogs: [
         {
@@ -74,33 +71,26 @@ let inicialState = {
         {id: 3, message: 'bugyyyy'},
         {id: 4, message: 'wuggyyyyy'},
 
-    ],
+    ]
 
-};
+}
 
 const newsReducer = (state = inicialState, action) => {
     switch (action.type) {
         case ADD_POST_NEWS_TEXT_AREA: {
             let newsPostserv = {
-                id: 5,
-                message: state.newsPost
+                id: 7,
+                message: action.newPostTextArea
             };
             let stateCopy = {...state};
             stateCopy.messages = [...stateCopy.messages];
             stateCopy.messages.push(newsPostserv);
-            stateCopy.newsPost = ' ';
-            return stateCopy;
-        }
-        case UPDATE_POST_NEWS_TEXT_AREA: {
-            let stateCopy = {...state};
-            stateCopy.newsPost = action.newsPostServis;
-            return stateCopy;
+            return stateCopy
         }
         default:
             return state;
     }
 }
-export const addPostNewsTextAreaActionCreator = () => ({type: ADD_POST_NEWS_TEXT_AREA})
-export const updatePostNewsAreaActionCreator = (text) => ({type: UPDATE_POST_NEWS_TEXT_AREA, newsPostServis: text})
+export const addPostNewsTextAreaActionCreator = (newPostTextArea) => ({type: ADD_POST_NEWS_TEXT_AREA,newPostTextArea})
 
 export default newsReducer;

@@ -2,18 +2,14 @@ import React from "react";
 import f from "./Music.module.css";
 import DialogIthem from "../Dialogs/DialogIthem/DialogIthem";
 import Message from "../Dialogs/Message/Message";
+import MusTextArea from "./MusicForm";
 
 class Music extends React.Component {
     constructor(props) {
         super(props);
 
-        this.Add = () => {
-            this.props.addPostMusic();
-        }
-
-        this.onPostChange = (element) => {
-            let text = element.target.value;
-            this.props.updateNewPostMusic(text);
+        this.AddMusicTextArea = (values) => {
+            this.props.addPostMusic(values.newMusicTextArea);
         }
     }
 
@@ -28,16 +24,10 @@ class Music extends React.Component {
             <div className={f.music}>
                 <div>{this.dialogsElements}</div>
                 <div>{this.messagesElements}</div>
-                <div className={f.textArea}><textarea onChange={this.onPostChange}
-                                                      value={this.props.newPostMusic}> </textarea></div>
-                <div>
-                    <button className={f.add} onClick={this.Add}>Add</button>
-                </div>
-
+                <MusTextArea onSubmit={this.AddMusicTextArea}/>
             </div>
         )
     }
-
 }
 
 export default Music;

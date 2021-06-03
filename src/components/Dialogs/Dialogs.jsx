@@ -2,17 +2,13 @@ import React from "react";
 import f from "./Dialogs.module.css";
 import DialogIthem from "./DialogIthem/DialogIthem";
 import Message from "./Message/Message";
+import AddMessageForm from "./DialogsForm";
 
 class Dialogs extends React.Component {
     constructor(props) {
         super(props);
-        this.AddDialogPost = () => {
-            props.addDialogPost();
-        }
-
-        this.onPostChange = (e) => {
-            let text = e.target.value;
-            props.updateNewPostMessage(text);
+        this.AddDialogPost = (values) => {
+            props.sendDialogPost(values.newMessageBody);
         }
     }
 
@@ -45,16 +41,15 @@ class Dialogs extends React.Component {
                     <div>
                         {this.messagesElementsRightSide}
                     </div>
-                    <div>
-                        < textarea onChange={this.onPostChange} value={this.props.newPostMessage}> </textarea>
-                    </div>
-                    <div>
-                        <button onClick={this.AddDialogPost}>Add</button>
-                    </div>
+                    <AddMessageForm onSubmit={this.AddDialogPost} />
                 </div>
             </div>
         )
-
     }
 }
+
+
+
+
+
 export default Dialogs;

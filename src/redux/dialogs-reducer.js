@@ -1,5 +1,5 @@
 const ADD_MESSAGE_AREA_LEFT_SIDE = 'ADD-MESSAGE-AREA-LEFT-SIDE';
-const UPDATE_TEXT_AREA_LEFT_SIDE = 'UPDATE-TEXT-AREA-LEFT-SIDE';
+
 
 let inicialState = {
     dialogs: [
@@ -69,38 +69,28 @@ let inicialState = {
         {id: 1, message: 'oooooooo '},
         {id: 2, message: 'youuuuu'},
         {id: 3, message: 'bugyyyy'},
-        {id: 4, message: 'wuggyyyyy'},
+        {id: 4, message: 'wuggyyyyy'}
 
-    ],
-    newPostMessage: 'Hello from state for Messages',
-};
+    ]
+}
 
 
 const dialogsReducer = (state = inicialState, action) => {
 
     switch (action.type) {
-        case UPDATE_TEXT_AREA_LEFT_SIDE:
-            return {
-                ...state,
-                newPostMessage: action.text
-            }
+
         case ADD_MESSAGE_AREA_LEFT_SIDE:
-            let text = state.newPostMessage
+            let text = action.newMessageBody;
             return {
                 ...state,
-                newPostMessage: ' ',
                 messagesside: [...state.messagesside, {id: 5, message: text}]
-            };
+            }
         default:
             return state;
     }
 }
 
-export const addMessageAreaLeftSideActionCreator = () => ({type: ADD_MESSAGE_AREA_LEFT_SIDE})
-export const updateTextAreaLeftSideActionCreator = (text) => ({
-    type: UPDATE_TEXT_AREA_LEFT_SIDE, text: text
-})
+export const addMessageAreaLeftSideActionCreator = (newMessageBody) => ({type: ADD_MESSAGE_AREA_LEFT_SIDE, newMessageBody})
+
 export default dialogsReducer;
 
-//Object.assign({}, state, {
-// newPostMessage: action.newTextmessageArea})

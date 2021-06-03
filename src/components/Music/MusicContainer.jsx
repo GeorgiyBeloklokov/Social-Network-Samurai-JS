@@ -1,6 +1,4 @@
-import {
-    addPostMusicTextAreaActionCreator, updatePostMusicTextArea,
-} from "../../redux/music-reducer";
+import {addPostMusicTextAreaActionCreator,} from "../../redux/music-reducer";
 import Music from "./Music";
 import {connect} from "react-redux";
 import {compose} from "redux";
@@ -10,18 +8,13 @@ import {WithAuthRedirect} from "../hoc/WithAuthRedirect";
 let mapStateToProps = (state) => {
     return {
         dialogs: state.musicPage.dialogs,
-        messages: state.musicPage.messages,
-        newPostMusic: state.musicPage.newPostMusic
+        messages: state.musicPage.messages
     }
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        addPostMusic: () => {
-            dispatch(addPostMusicTextAreaActionCreator());
-        },
-
-        updateNewPostMusic: (text) => {
-            dispatch(updatePostMusicTextArea(text));
+        addPostMusic: (newMusicTextArea) => {
+            dispatch(addPostMusicTextAreaActionCreator(newMusicTextArea));
         }
     }
 }

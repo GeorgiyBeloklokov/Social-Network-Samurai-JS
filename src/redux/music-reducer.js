@@ -1,5 +1,5 @@
 const ADD_POST_MUSIC_TEXT_AREA = 'ADD-POST-MUSIC-TEXT-AREA';
-const UPDATE_POST_MUSIC_TEXT_AREA = 'UPDATE-POST-MUSIC-TEXT-AREA';
+
 
 let inicialState = {
     dialogs: [
@@ -69,31 +69,27 @@ let inicialState = {
         {id: 1, message: 'oooooooo '},
         {id: 2, message: 'youuuuu'},
         {id: 3, message: 'bugyyyy'},
-        {id: 4, message: 'wuggyyyyy'},
+        {id: 4, message: 'wuggyyyyy'}
 
-    ],
-
-    newPostMusic: 'Hi from Music state'
-};
+    ]
+}
 
 
 const musicReducer = (state = inicialState, action) => {
     switch (action.type) {
         case ADD_POST_MUSIC_TEXT_AREA:
             return {
-                ...state, newPostMusic: ' ', messages: [...state.messages,
+                ...state, messages: [...state.messages,
                     {
                         id: 5,
-                        message: state.newPostMusic
+                        message: action.newMusicTextArea
                     }
                 ]
             }
-        case UPDATE_POST_MUSIC_TEXT_AREA:
-            return {...state, newPostMusic: action.newPostMusicServ}
         default:
             return state;
     }
 }
-export const addPostMusicTextAreaActionCreator = () => ({type: ADD_POST_MUSIC_TEXT_AREA})
-export const updatePostMusicTextArea = (text) => ({type: UPDATE_POST_MUSIC_TEXT_AREA, newPostMusicServ: text})
+export const addPostMusicTextAreaActionCreator = (newMusicTextArea) => ({type: ADD_POST_MUSIC_TEXT_AREA,newMusicTextArea})
+
 export default musicReducer;

@@ -2,16 +2,13 @@ import React from "react";
 import f from "./News.module.css";
 import DialogIthem from "../Dialogs/DialogIthem/DialogIthem";
 import Message from "../Dialogs/Message/Message";
+import NewsTextArea from "./NewsForm";
 
 class News extends React.Component {
     constructor(props) {
         super(props);
-        this.addPostNews = () => {
-            props.addPostNews();
-        }
-        this.onPostChange = (e) => {
-            let text = e.target.value;
-            this.props.updateNewsPost(text);
+        this.addPostNews = (values) => {
+            props.addNewPostNews(values.newPostTextArea);
         }
     }
 
@@ -25,12 +22,7 @@ class News extends React.Component {
             <div className={f.news}>
                 <div>{this.dialogsElements}</div>
                 <div>{this.messagesElements}</div>
-                <div className={f.textArea}><textarea onChange={this.onPostChange}
-                                                      value={this.props.newsPost}> </textarea></div>
-                <div>
-                    <button className={f.add} onClick={this.addPostNews}>Add</button>
-                </div>
-
+                <NewsTextArea onSubmit={this.addPostNews}/>
             </div>
         )
     }

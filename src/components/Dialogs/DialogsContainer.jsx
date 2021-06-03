@@ -1,6 +1,5 @@
-import {addMessageAreaLeftSideActionCreator, updateTextAreaLeftSideActionCreator} from "../../redux/dialogs-reducer";
+import {addMessageAreaLeftSideActionCreator} from "../../redux/dialogs-reducer";
 import {connect} from "react-redux";
-import React from "react";
 import {WithAuthRedirect} from "../hoc/WithAuthRedirect";
 import Dialogs from "./Dialogs";
 import {compose} from "redux";
@@ -10,20 +9,15 @@ let mapStateToProps = (state) => {
         dialogs: state.dialogsPage.dialogs,
         messages: state.dialogsPage.messages,
         personsside: state.dialogsPage.personsside,
-        messagesside: state.dialogsPage.messagesside,
-        newPostMessage: state.dialogsPage.newPostMessage
+        messagesside: state.dialogsPage.messagesside
     }
 }
 
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        addDialogPost: () => {
-            dispatch(addMessageAreaLeftSideActionCreator());
-        },
-
-        updateNewPostMessage: (text) => {
-            dispatch(updateTextAreaLeftSideActionCreator(text));
+        sendDialogPost: (newMessageBody) => {
+            dispatch(addMessageAreaLeftSideActionCreator(newMessageBody));
         }
     }
 }

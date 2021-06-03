@@ -2,17 +2,17 @@ import React from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import UserPhoto from "../../../assets/images/8841.jpg"
+import {Field, reduxForm} from "redux-form";
+import {maxLengthCreator, required} from "../../../utils/validators/validators";
+import {Textarea} from "../../FornControls/FormsControls";
+
+const maxLength10 =  maxLengthCreator(10);
 
 class MyPosts extends React.Component {
     constructor(props) {
         super(props);
-        this.AddPost = () => {
-            this.props.addPost();
-        }
-
-        this.onPostChange = (e) => {
-            let text = e.target.value;
-            this.props.updateNewPostText(text);
+        this.newAddPosTextArea = (values) => {
+            this.props.addPost(values.profileTextArea);
         }
     }
 
@@ -32,10 +32,7 @@ class MyPosts extends React.Component {
                         <div className={s.ithem}>My post</div>
                     </div>
                     <div>
-                        <textarea onChange={this.onPostChange} value={this.props.newPostText}> </textarea>
-                    </div>
-                    <div>
-                        <button onClick={this.AddPost}>Add post</button>
+                        <AddProfilePageFormRedux onSubmit={this.newAddPosTextArea} />
                     </div>
                 </div>
                 {this.postsElements}
@@ -43,5 +40,17 @@ class MyPosts extends React.Component {
         )
     }
 }
+let textProfilePage = (props) => {
+    return (
+         <form onSubmit={props.handleSubmit}>
+             <div>
+                 <Field component={Textarea} name="profileTextArea" placeholder="Your text" validate={[required,maxLength10]}/>
+             </div>
+             <div><button>Add</button> </div>
+         </form>
+        )
+}
+
+const AddProfilePageFormRedux = reduxForm ({form: "addProfileTextArea"}) (textProfilePage)
 
 export default MyPosts;

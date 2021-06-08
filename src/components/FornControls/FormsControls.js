@@ -27,21 +27,20 @@ export const Input = (props) => {
     return <FormControl {...props} Formtype="input"></FormControl>
 }
 
-/*
+
 const maxLength10 = maxLengthCreator(10);
 
-export const CaptchaOne = (props) => {
+/*
+export const CaptchaOne = (url) => {
     return (<div>
             <div>
                 <Field component={Textarea} name="newMessageBody" placeholder="Your text"
                        validate={[required, maxLength10]}/>
             </div>
             <div>
-                <img src={props} alt={'img'}/>
+                <img src={url} alt={'ups not found img'}/>
             </div>
         </div>
     )
 }
-<div>
-    <CaptchaOne />
-</div>*/
+*/

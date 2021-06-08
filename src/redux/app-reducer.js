@@ -1,22 +1,16 @@
-import {authAPI} from "../api/api";
-import {stopSubmit} from "redux-form";
-import {CaptchaOne} from "../components/FornControls/FormsControls";
+import {getAuthUserData} from "./auth-reducer";
 
-const SET_USER_DATA = 'SET_USER_DATA';
+const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
 
 let inicialState = {
-    id: null,
-    login: null,
-    email: null,
-    isFetching: 0,
-    isAuth: false,
-    url: null
-}
-const authReducer = (state = inicialState, action) => {
+    initialized: false
+};
+
+const appReducer = (state = inicialState, action) => {
     switch (action.type) {
-        case SET_USER_DATA:
+        case INITIALIZED_SUCCESS:
             return {
-                ...state, ...action.payload
+                ...state, initialized: true
             }
 
         default:
@@ -24,23 +18,25 @@ const authReducer = (state = inicialState, action) => {
     }
 }
 
-export const setAuthUserData = (userId, login, email, isAuth, url) => ({
-    type: SET_USER_DATA,
-    payload: {userId, login, email, isAuth, url}
-})
+export const initializedSuccess = () => ({
+    type: INITIALIZED_SUCCESS
+});
 
 
 
-export const getAuthUserData = () => (dispatch) => {
-    authAPI.me()
-        .then(response => {
-            if (response.data.resultCode === 0) {
-                let {id, login, email} = response.data.data;
-                dispatch(setAuthUserData(id, login, email, true));
-            }
-        });
+export const initializeApp = () => (dispatch) => {
+    let promise = dispatch(getAuthUserData());
+    //dispatch promise 1
+    //dispatch promise2
+    Promise.all([promise]).then(()=> {
+        dispatch(initializedSuccess());
+    });
 }
 
+
+
+
+/*
 export const login = (email, password, rememberMe) => (dispatch) => {
     authAPI.login(email, password, rememberMe)
         .then(response => {
@@ -50,21 +46,22 @@ export const login = (email, password, rememberMe) => (dispatch) => {
                 let message = response.data.messages.length > 0 ? response.data.messages[0]: "Some error";
                 dispatch(stopSubmit("login", {_error: message}));
             }
-            /*if (response.data.resultCode === 10) {
+            /!*if (response.data.resultCode === 10) {
 
                 dispatch(captcha());
-            }*/
+            }*!/
         });
 }
+*/
 
-export const logout = () => (dispatch) => {
+/*export const logout = () => (dispatch) => {
     authAPI.logout()
         .then(response => {
             if (response.data.resultCode === 0) {
                 dispatch(setAuthUserData(null, null, null, false,));
             }
         });
-}
+}*/
 /*export const captcha = () => (dispatch) => {
     authAPI.captcha()
         .then(response => {
@@ -73,4 +70,4 @@ export const logout = () => (dispatch) => {
 
         });
 }*/
-export default authReducer;
+export default appReducer;

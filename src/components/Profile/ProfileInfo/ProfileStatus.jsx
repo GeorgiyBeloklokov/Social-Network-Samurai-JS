@@ -33,12 +33,9 @@ if (prevProps.status !== this.props.status  ) {
         status: this.props.status
     });
 }
-
-
     }
 
     render() {
-        console.log("render")
         return (
             <div>
                 {!this.state.editMode &&

@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {login} from "../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
 import style from "./../FornControls/FormsControls.module.css"
+
 const LoginForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
@@ -13,35 +14,36 @@ const LoginForm = (props) => {
                 <Field placeholder="Email" name="email" component={Input} validate={[required]}/>
             </div>
             <div>
-                <Field placeholder="Password" name="password" type={"password"} component={Input} validate={[required]}/>
+                <Field placeholder="Password" name="password" type={"password"} component={Input}
+                       validate={[required]}/>
             </div>
             <div>
                 <Field component={Input} name="rememberMe" type="checkbox"/> Remember me
             </div>
-            {props.error && <div className={style.formSummaryError}>
-                {props.error}
+            {props.error && <div className={style.formSummaryError}>{props.error}
             </div>}
+            {/*<div>
+                <Field component={CaptchaOne} name="captcha" type="captcha" />
+            </div>*/}
             <div>
                 <button>Login</button>
             </div>
-
-
         </form>
 
     )
 }
 
 
-const LoginReduxForm = reduxForm ({ form: "login" })(LoginForm)
+const LoginReduxForm = reduxForm({form: "login"})(LoginForm)
 
 
 const Login = (props) => {
     const onSubmit = (formData) => {
-        props.login(formData.email,formData.password,formData.rememberMe);
+        props.login(formData.email, formData.password, formData.rememberMe);
     }
 
-    if(props.isAuth) {
-        return <Redirect to = {"/profile" }/>
+    if (props.isAuth) {
+        return <Redirect to={"/profile"}/>
     }
 
     return (
@@ -57,4 +59,4 @@ const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth
 });
 
-export default connect (mapStateToProps, {login}) (Login);
+export default connect(mapStateToProps, {login})(Login);

@@ -3,7 +3,7 @@ import s from "./ProfileInfo.module.css";
 import Preloader from "../../Preloader/Preloader";
 import NeedJob from "../../../assets/images/NeedJob.png"
 import NoNeedJob from "../../../assets/images/DontNeedJob.jpeg"
-import ProfileStatus from "./ProfileStatus"
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
 
@@ -20,7 +20,7 @@ const ProfileInfo = (props) => {
             <div className={s.p}>
                 < img className={s.img1profile}
                       src={props.profile.photos.large} alt=" "/>
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
             </div>
             <div className={s.z}> {'Обо мне:'} {props.profile.aboutMe} </div>
             <div> {'Поиск работы :'} {props.profile.lookingForAJob === true ? (

@@ -1,15 +1,15 @@
 import React from "react";
 import {Field, reduxForm} from "redux-form";
-import {CaptchaOne, Input} from "../FornControls/FormsControls";
+import {Input} from "../FornControls/FormsControls";
 import {required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
 import {login} from "../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
 import style from "./../FornControls/FormsControls.module.css"
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit,error}) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div>
                 <Field placeholder="Email" name="email" component={Input} validate={[required]}/>
             </div>
@@ -20,7 +20,7 @@ const LoginForm = (props) => {
             <div>
                 <Field component={Input} name="rememberMe" type="checkbox"/> Remember me
             </div>
-            {props.error && <div className={style.formSummaryError}>{props.error}
+            {error && <div className={style.formSummaryError}>{error}
             </div>}
             {/*<div>
                 <Field component={CaptchaOne} name="captcha" type="captcha" />

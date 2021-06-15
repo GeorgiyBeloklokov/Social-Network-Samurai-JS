@@ -18,6 +18,7 @@ import {
     getPageSize,
     getTotalUsersCount
 } from "../../redux/users-selectors";
+import Paginator from "../Paginator/Paginator";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -33,6 +34,8 @@ class UsersContainer extends React.Component {
     render() {
         return <>
             {this.props.isFetching ? <Preloader/> : null}
+            <Paginator totalItemsCount={this.props.totalUsersCount} pageSize={this.props.pageSize} currentPage={this.props.currentPage} onPageChanged={this.onPageChanged} />
+
             <Users totalUsersCount={this.props.totalUsersCount} pageSize={this.props.pageSize}
                    currentPage={this.props.currentPage} toggleFollowingProgress={this.props.toggleFollowingProgress}
                    onPageChanged={this.onPageChanged} users={this.props.users} toggleFollow={this.props.toggleFollow}
@@ -42,18 +45,6 @@ class UsersContainer extends React.Component {
         </>
     }
 }
-
-/*let mapStateToProps = (state) => {
-    return {
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress
-
-    }
-}*/
 
 let mapStateToProps = (state) => {
     return {
@@ -66,7 +57,6 @@ let mapStateToProps = (state) => {
 
     }
 }
-
 
 
 export default compose(WithAuthRedirect, connect(mapStateToProps, {

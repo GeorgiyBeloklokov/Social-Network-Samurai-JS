@@ -1,0 +1,45 @@
+
+.paginator {
+
+    color: darkblue;
+}
+
+.selectedPage {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.pageNumber  {
+    border-radius: 5px;
+    padding: 3px;
+    border: 1px solid grey;
+
+}
+
+.pageNumber.selectedPage {
+
+    font-weight: bold;
+    border-color: #ff0000;
+    background-color: #ff3b3b;
+}
+
+
+
+/*
+.paginator a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.paginator a.active {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+.paginator a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}*/

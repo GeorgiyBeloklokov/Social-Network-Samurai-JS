@@ -4,12 +4,21 @@ import Preloader from "../../Preloader/Preloader";
 import NeedJob from "../../../assets/images/NeedJob.png"
 import NoNeedJob from "../../../assets/images/DontNeedJob.jpeg"
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import userPhoto from "../../../assets/images/ava1.png";
 
-const ProfileInfo = (props) => {
+const ProfileInfo = ({isOwner,profile,status,updateStatus,savePhoto}) => {
 
-    if (!props.profile) {
+    if (!profile) {
         return <Preloader/>
     }
+
+const onMainPhotoSelected = (e) => {
+if(e.target.files.length) {
+    savePhoto(e.target.files[0]);
+
+}
+}
+
     return (
         <div>
             {/* <div>
@@ -19,11 +28,12 @@ const ProfileInfo = (props) => {
             </div>*/}
             <div className={s.p}>
                 < img className={s.img1profile}
-                      src={props.profile.photos.large} alt=" "/>
-                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
+                      src={profile.photos.large || userPhoto} alt=" "/>
+                { isOwner && <input type = {"file"} onChange={onMainPhotoSelected} /> }
+                <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
             </div>
-            <div className={s.z}> {'Обо мне:'} {props.profile.aboutMe} </div>
-            <div> {'Поиск работы :'} {props.profile.lookingForAJob === true ? (
+            <div className={s.z}> {'Обо мне:'} {profile.aboutMe} </div>
+            <div> {'Поиск работы :'} {profile.lookingForAJob === true ? (
                     <img className={s.needjob} src={NeedJob} alt=" "/>)
                 : (<img className={s.needjob} src={NoNeedJob} alt=" "/>)
             }

@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/TartasM/Progect1_SN.git/static/css/main.dff499f6.chunk.css",
-    "main.js": "/TartasM/Progect1_SN.git/static/js/main.0e966d03.chunk.js",
-    "main.js.map": "/TartasM/Progect1_SN.git/static/js/main.0e966d03.chunk.js.map",
+    "main.js": "/TartasM/Progect1_SN.git/static/js/main.e74b777d.chunk.js",
+    "main.js.map": "/TartasM/Progect1_SN.git/static/js/main.e74b777d.chunk.js.map",
     "runtime-main.js": "/TartasM/Progect1_SN.git/static/js/runtime-main.2ea5ff87.js",
     "runtime-main.js.map": "/TartasM/Progect1_SN.git/static/js/runtime-main.2ea5ff87.js.map",
     "static/js/2.b32c5c20.chunk.js": "/TartasM/Progect1_SN.git/static/js/2.b32c5c20.chunk.js",
@@ -27,6 +27,6 @@
     "static/js/runtime-main.2ea5ff87.js",
     "static/js/2.b32c5c20.chunk.js",
     "static/css/main.dff499f6.chunk.css",
-    "static/js/main.0e966d03.chunk.js"
+    "static/js/main.e74b777d.chunk.js"
   ]
 }

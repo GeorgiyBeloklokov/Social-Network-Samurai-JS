@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './FormsControls.module.css'
-import {maxLengthCreator, required} from "../../utils/validators/validators";
 import {Field} from "redux-form";
 
 const FormControl = ({input, meta, Formtype, url, ...props}) => {
@@ -28,19 +27,17 @@ export const Input = (props) => {
 }
 
 
-const maxLength10 = maxLengthCreator(10);
 
-/*
-export const CaptchaOne = (url) => {
-    return (<div>
+
+
+export const createField = (placeholder, name, validators, component, props = {} , text = "" ) => (
+
             <div>
-                <Field component={Textarea} name="newMessageBody" placeholder="Your text"
-                       validate={[required, maxLength10]}/>
+                <Field placeholder={placeholder} name={name}
+                validate={validators}
+                 component = {component}
+                 {...props}
+                 /> {text}
             </div>
-            <div>
-                <img src={url} alt={'ups not found img'}/>
-            </div>
-        </div>
-    )
-}
-*/
+)
+

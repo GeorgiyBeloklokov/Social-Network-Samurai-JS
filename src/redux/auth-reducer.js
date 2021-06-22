@@ -53,12 +53,5 @@ export const logout = () => async (dispatch) => {
         dispatch(setAuthUserData(null, null, null, false,));
     }
 }
-/*export const captcha = () => (dispatch) => {
-    authAPI.captcha()
-        .then(response => {
-            let url = response.data.url;
-            dispatch(CaptchaOne(url));
 
-        });
-}*/
 export default authReducer;

@@ -1,10 +1,12 @@
-import {profileAPI, usersAPI} from "../api/api";
+import {profileAPI} from "../api/api";
+import {stopSubmit} from "redux-form";
 
 const ADD_POST = 'ADD--POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 const DELETE_POST = 'DELETE_POST';
 const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS';
+//const SAVE_PROFILE_SUCCESS = 'SAVE_PROFILE_SUCCESS';
 
 let inicialState = {
     posts: [
@@ -40,6 +42,10 @@ const profileReducer = (state = inicialState, action) => {
             return {
                 ...state, profile: {...state.profile, photos: action.photos }
             }
+            /*case SAVE_PROFILE_SUCCESS:
+            return {
+                ...state, profile: {...state.profile, profile: action.profile }
+            }*/
         default:
             return state;
     }
@@ -49,10 +55,11 @@ export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 export const setStatus = (status) => ({type: SET_STATUS, status})
 export const deletePost = (postId) => ({type: DELETE_POST, postId})
 export const savePhotoSuccess = (photos) => ({type: SAVE_PHOTO_SUCCESS, photos})
+//export const saveProfileSuccess = (profile) => ({type: SAVE_PROFILE_SUCCESS, profile})
 
 
 export const getUserProfile = (userId) => async (dispatch) => {
-    let response = await usersAPI.getProfile(userId);
+    let response = await profileAPI.getProfile(userId);
     dispatch(setUserProfile(response.data));
 }
 
@@ -72,6 +79,16 @@ export const savePhoto = (file) => async (dispatch) => {
     let response = await profileAPI.savePhoto(file);
     if (response.data.resultCode === 0) {
         dispatch(savePhotoSuccess(response.data.data.photos));
+    }
+}
+
+export const saveProfile = (profile) => async (dispatch, getState) => {
+    const userId = getState().auth.userId;
+    const response = await profileAPI.saveProfile(profile);
+    if (response.data.resultCode === 0) {
+        dispatch(getUserProfile(userId));
+    } else {
+        dispatch(stopSubmit("edit-profile", {"contacts": {"facebook" : response.data.messages[0]}}));
     }
 }
 

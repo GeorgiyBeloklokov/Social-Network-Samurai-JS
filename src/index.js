@@ -11,7 +11,7 @@ import {Provider} from "react-redux";
 ReactDOM.render(
     <HashRouter >
         <Provider store={store}>
-            <App/>
+            <App />
         </Provider>
     </HashRouter>,
     document.getElementById('root'));

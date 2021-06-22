@@ -3,11 +3,8 @@ import styles from "./Users.module.css";
 import userPhoto from "../../assets/images/ava1.png";
 import {NavLink} from "react-router-dom";
 import {usersAPI} from "../../api/api";
-import Paginator from "../Paginator/Paginator";
-
 
 let Users = (props) => {
-
     return <div>
         {props.users.map(u => <div key={u.id}>
              <span>

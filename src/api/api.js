@@ -29,10 +29,10 @@ export const usersAPI = {
             });
     },
 
-    getProfile(userId) {
+    /*getProfile(userId) {
         console.warn('Warning - obsolete method. Use profileApi object')
         return profileAPI.getProfile(userId);
-    }
+    }*/
 
 }
 
@@ -52,9 +52,14 @@ export const profileAPI = {
     savePhoto(photoFile) {
         const formData = new FormData();
 formData.append("image", photoFile);
-        return instance.put(`profile/photo/`, formData, { headers: {'Content-Type': 'multipart/form-data' } });
-    }
+        return instance.put(`profile/photo/`, formData, );
+    },
 
+    saveProfile(profile) {
+        const formData = new FormData();
+formData.append("profile", profile);
+        return instance.put(`profile`, profile, );
+    }
 }
 
 export const authAPI = {
@@ -71,26 +76,4 @@ export const authAPI = {
     captcha() {
         return instance.get(`security/get-captcha-url`);
     }
-
-
 }
-
-
-
-
-
-/*
-export const loginAPI = {
-    getLogin() {
-        return instance.post(`auth/login/`,  {}, {})
-            .then(response => {
-                return response.data;
-            });
-    },
-    deleteLogin() {
-        return instance.delete(`auth/login/`, {}, {})
-            .then(response => {
-                return response.data;
-            });
-    }
-}*/

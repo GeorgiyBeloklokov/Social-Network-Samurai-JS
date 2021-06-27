@@ -10,7 +10,10 @@
   grid-gap: 4px;
 }
 
-
+.error1 {
+  color: red;
+  font-size: 3rem;
+}
 
 
 

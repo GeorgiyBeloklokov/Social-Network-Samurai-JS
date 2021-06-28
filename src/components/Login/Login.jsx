@@ -5,7 +5,9 @@ import {required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
 import {login} from "../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
-import style from "./../FornControls/FormsControls.module.css"
+import style from "./../FornControls/FormsControls.module.css";
+import {Button,Container,Row,Col} from "react-bootstrap";
+
 
 const LoginForm = ({handleSubmit,error,captchaUrl}) => {
     return (
@@ -18,7 +20,7 @@ const LoginForm = ({handleSubmit,error,captchaUrl}) => {
             {error && <div className={style.formSummaryError}>{error}
             </div>}
             <div>
-                <button>Login</button>
+                <Button variant="outline-primary">Login</Button>
             </div>
         </form>
 

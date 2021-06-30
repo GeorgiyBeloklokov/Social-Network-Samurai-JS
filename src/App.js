@@ -13,42 +13,95 @@ import {connect} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/Preloader/Preloader";
 import {withSuspense} from "./components/hoc/WithSuspense";
-import {Container,Row,Col} from "react-bootstrap";
+import {makeStyles} from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import {Button, Container, Typography} from "@material-ui/core";
+
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
 
 
+
+
 class App extends React.Component {
     catchAllUnhandledErrors = (promiseRejectionEvent) => {
-alert(promiseRejectionEvent);
+        alert(promiseRejectionEvent);
 //console.error(promiseRejectionEvent);
 
     }
+
     componentDidMount() {
         this.props.initializeApp();
-        window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors) ;
+        window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
     }
-componentWillUnmount() {
-    window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors) ;
-}
 
+    componentWillUnmount() {
+        window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors);
+    }
+
+    let useStyles = makeStyles((theme) => ({
+            root: {
+                flexGrow: 1
+            },
+            menuButton: {
+                marginRight: theme.spacing(1) // 8px, 2=16px, 3=24px
+            },
+            title: {
+                flexGrow: 1 // коэф увеличения ширины флекс элемента страницы относительно других флекс элеменитов внутри контейнера
+
+            }
+        }
+    ));
+
+    CenteredGrid  () {
+        const classes = useStyles();
+    }
 
     render() {
         if (!this.props.initialized) {
             return <Preloader/>
         }
+
         return (
+
+
+            <main>
+                <Paper className={classes.mainFeaturesPost}
+                       style={{backgroundImage: `url(https://source.unsplash.com/random)`}}>
+                    <Container maxWidth="md">
+                        <Grid container>
+                            <Grid item md={6}>
+                                <div className={classes.mainFeaturesPostContent}>
+                                    <Typography component="h1" color="inherit" gutterBottom >
+                                        Social network JS
+                                    </Typography>
+                                    <Typography component="h5" color="inherit" paragraph >
+                                        Lorem rlkgmrktgm,ertkgmromgti,etgrkom4rtgimo,e4kmgrt4oemgt,erogngt,wcini3ruv,wiu3fne.
+                                    </Typography>
+                                    <Button variant="contained" color="secondary">Learn more</Button>
+                                </div>
+                            </Grid>
+                        </Grid>
+                    </Container>
+                </Paper>
+            </main>
+        )
+
+
+        /*return (
+
             <div className='app-wrapper'>
+                <NavbarContainer/>
                 <HeaderContainer/>
-                < NavbarContainer/>
+
                 <div className='app-wrapper-content'>
                     <Switch>
                         <Route path='/dialogs'
                                render={withSuspense(DialogsContainer)}/>
                         <Route path='/profile/:userId?'
                                render={withSuspense(ProfileContainer)}/>
-
                         <Route path='/news' render={() => <NewsContainer/>}/>
                         <Route path='/music' render={() => <MusicContainer/>}/>
                         <Route path='/settings' render={() => <Settings/>}/>
@@ -60,9 +113,12 @@ componentWillUnmount() {
                     </Switch>
                 </div>
             </div>
-        )
+        )*/
+
     }
+
 }
+
 
 const mapStateToProps = (state) => ({
 

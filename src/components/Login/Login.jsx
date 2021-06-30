@@ -6,7 +6,8 @@ import {connect} from "react-redux";
 import {login} from "../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
 import style from "./../FornControls/FormsControls.module.css";
-import {Button,Container,Row,Col} from "react-bootstrap";
+import {Button} from "@material-ui/core";
+
 
 
 const LoginForm = ({handleSubmit,error,captchaUrl}) => {
@@ -20,7 +21,8 @@ const LoginForm = ({handleSubmit,error,captchaUrl}) => {
             {error && <div className={style.formSummaryError}>{error}
             </div>}
             <div>
-                <Button variant="outline-primary">Login</Button>
+                <Button variant="contained" type="submit">Login</Button>
+               {/* <button>Login</button>*/}
             </div>
         </form>
 

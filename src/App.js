@@ -41,23 +41,8 @@ class App extends React.Component {
         window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors);
     }
 
-    let useStyles = makeStyles((theme) => ({
-            root: {
-                flexGrow: 1
-            },
-            menuButton: {
-                marginRight: theme.spacing(1) // 8px, 2=16px, 3=24px
-            },
-            title: {
-                flexGrow: 1 // коэф увеличения ширины флекс элемента страницы относительно других флекс элеменитов внутри контейнера
 
-            }
-        }
-    ));
 
-    CenteredGrid  () {
-        const classes = useStyles();
-    }
 
     render() {
         if (!this.props.initialized) {
@@ -67,7 +52,7 @@ class App extends React.Component {
         return (
 
 
-            <main>
+           /* <main>
                 <Paper className={classes.mainFeaturesPost}
                        style={{backgroundImage: `url(https://source.unsplash.com/random)`}}>
                     <Container maxWidth="md">
@@ -86,11 +71,11 @@ class App extends React.Component {
                         </Grid>
                     </Container>
                 </Paper>
-            </main>
-        )
+            </main>*/
 
 
-        /*return (
+
+
 
             <div className='app-wrapper'>
                 <NavbarContainer/>
@@ -113,7 +98,7 @@ class App extends React.Component {
                     </Switch>
                 </div>
             </div>
-        )*/
+        )
 
     }
 

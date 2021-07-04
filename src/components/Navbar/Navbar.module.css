@@ -1,7 +1,7 @@
 
 .nav {
     grid-area: n;
-    background-color: orange;
+    background-color: #3f51b5;
 }
 
 .itHem a {
@@ -17,7 +17,8 @@
 .heaDitHem a:hover,
 .heaDitHem a:active,
 .heaDitHem a.active {
-    color: #72360b
+    color: #104cff;
+    text-decoration: none;
 }
 .servitHem1 a {
     color: white;
@@ -28,7 +29,7 @@
 .servitHem2 a {
     display: inline;
     font-size: 0.8rem;
-    color: mediumvioletred;
+    color: #ffffff;
     text-decoration: none;
 
 }

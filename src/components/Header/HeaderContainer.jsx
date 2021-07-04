@@ -16,7 +16,8 @@ const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
     login: state.auth.login,
     email: state.auth.email,
-    id: state.auth.id
+    id: state.auth.id,
+
 
 });
 

@@ -3,11 +3,13 @@ import React from "react";
 import {createField, Input, Textarea} from "../../FornControls/FormsControls";
 import {reduxForm} from "redux-form";
 import style from "../../FornControls/FormsControls.module.css";
+import {Button} from "@material-ui/core";
+import {Form} from "react-bootstrap";
 
 
 const ProfileDataForm = ({handleSubmit,profile,error}) => {
     return <form onSubmit={handleSubmit} >
-        <div><button>Save</button></div>
+        <div><Button color="primary" variant="contained" type="submit">Save</Button></div>
         {error && <div className={style.formSummaryError}>
             {error}
         </div>

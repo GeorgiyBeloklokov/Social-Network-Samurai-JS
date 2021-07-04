@@ -9,11 +9,9 @@ import {WithAuthRedirect} from "../hoc/WithAuthRedirect";
 
 class ProfileContainer extends React.Component {
     refreshProfile () {
-
         let userId = this.props.match.params.userId;
         if (!userId) {
             userId = this.props.authorizedUserId;
-
         }
         this.props.getUserProfile(userId);
         this.props.getStatus(userId);
@@ -22,6 +20,7 @@ class ProfileContainer extends React.Component {
     componentDidMount() {
         this.refreshProfile()
     }
+
         componentDidUpdate(prevProps, prevState, snapshot) {
             if (this.props.match.params.userId !== prevProps.match.params.userId) {
                 this.refreshProfile()
@@ -29,11 +28,9 @@ class ProfileContainer extends React.Component {
         }
 
     render() {
-
         return (
             <Profile {...this.props} isOwner = {!this.props.match.params.userId } savePhoto={this.props.savePhoto} profile={this.props.profile} status={this.props.status}
                      updateStatus={this.props.updateStatus}/>
-
         )
     }
 }

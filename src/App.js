@@ -18,7 +18,6 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import {Button, Container, Typography} from "@material-ui/core";
 
-
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
 
@@ -78,7 +77,7 @@ class App extends React.Component {
 
 
             <div className='app-wrapper'>
-                <NavbarContainer/>
+                {/*<NavbarContainer/>*/}
                 <HeaderContainer/>
 
                 <div className='app-wrapper-content'>

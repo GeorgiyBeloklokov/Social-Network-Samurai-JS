@@ -7,11 +7,6 @@ import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
 export const InputCustom = (props) => {
 
-/*    const onMainPhotoSelected = (e) => {
-        if (e.target.files.length) {
-            props.savePhoto(e.target.files[0])
-}
-}*/
 let savePhoto = props.savePhoto;
 
     const useStyles = makeStyles((theme) => ({
@@ -45,8 +40,8 @@ let savePhoto = props.savePhoto;
             </label>
             <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
             <label htmlFor="icon-button-file">
-                <IconButton  color="primary" aria-label="upload picture" component="span">
-                    <PhotoCamera />
+                <IconButton   color="primary" aria-label="upload picture" component="span">
+                    <PhotoCamera fontSize="large"/>
                 </IconButton>
             </label>
         </div>

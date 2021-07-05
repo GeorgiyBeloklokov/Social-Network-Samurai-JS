@@ -4,14 +4,8 @@ import Preloader from "../../Preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import userPhoto from "../../../assets/images/ava1.png";
 import ProfileDataForm from "./ProfileDataForm";
-import {Button, Input, TextField} from "@material-ui/core";
-import {findAllByDisplayValue} from "@testing-library/react";
-import profileCard from "./ProfileCard";
-import ProfileCard from "./ProfileCard";
-import MaterialUiForm from "../../Login/Login2";
-import {InputCustom} from "../../Header/InputCustom";
-
-
+import {Button} from "@material-ui/core";
+import {InputCustom} from "../../../utils/Buttons/InputCustom";
 
 
 const ProfileInfo = ({isOwner, profile, status, updateStatus, savePhoto,saveProfile}) => {
@@ -43,13 +37,13 @@ const ProfileInfo = ({isOwner, profile, status, updateStatus, savePhoto,saveProf
                      alt=" "/>
             </div>*/}
             <div>
-                {/*<ProfileCard />*/}
+
                 {/*<MaterialUiForm />*/}
             </div>
             <div className={s.p}>
                 < img className={s.img1profile}
                       src={profile.photos.large || userPhoto} alt="img"/>
-                {isOwner && <div>{/*<Input  className={s.input} type={"file"}  onChange={onMainPhotoSelected}/>*/}<InputCustom savePhoto={onMainPhotoSelected} /></div>}
+                {isOwner && <div><InputCustom savePhoto={onMainPhotoSelected} /></div>}
             </div>
             <div>
                 <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>

@@ -26,6 +26,8 @@ import {Login, LoginForm, LoginReduxForm} from "../Login/Login";
 import handleSubmit from "redux-form/lib/handleSubmit";
 import {useDispatch} from "react-redux";
 import {login} from "../../redux/auth-reducer";
+import {SignIn} from "./SigInForm";
+
 
 /*const Header = (props) => {
     return <header className={b.header}>
@@ -33,7 +35,7 @@ import {login} from "../../redux/auth-reducer";
 
         <div className={b.loginBlock}>
             {props.isAuth ?  <div>{props.login}  <button onClick={props.logout}>Log out</button></div>
-                : <NavLink to={'/login'}><button className={b.but} >Login</button></NavLink>
+                : <NavLink to={'/login'}><button className={b.but}>Login</button></NavLink>
             }
         </div>
     </header>
@@ -74,7 +76,6 @@ const Header = (props) => {
         Login(props);
     };
 
-
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -83,7 +84,6 @@ const Header = (props) => {
         history.push(pageURL);
         setAnchorEl(null);
     };
-
     return (
         <AppBar position="fixed" opacity="60%" color="primary">
             <Container>
@@ -116,28 +116,24 @@ const Header = (props) => {
                         </Menu>
                     </div>
                     < Typography variant="h6" className={classes.title}>SocialNetworkSamJS</Typography>
-
-
                    <Box mr={3}>
 
-                        {/*<Button color="inherit" variant="outlined" onClick={handleClickOpen} >Log In</Button>*/}
+                        <Button color="inherit" variant="outlined" onClick={handleClickOpen} >Log In</Button>
 
-                            {props.isAuth ?  <div>{props.login}  <Button color="inherit" variant="outlined" onClick={props.logout}>Log out</Button></div>
+                            {/*{props.isAuth ?  <div>{props.login}  <Button color="inherit" variant="outlined" onClick={props.logout}>Log out</Button></div>
                                 : <NavLink to={'/login'}><Button color="inherit" variant="outlined" >Login</Button></NavLink>
-                            }
+                            }*/}
 
 
 
 
-                            {/*<Dialog  open={gopen} onClose={handleClose} aria-labelledby="form-dialog-title">
+                            <Dialog  open={gopen} onClose={handleClose} aria-labelledby="form-dialog-title">
                                 <DialogTitle id="form-dialog-title">Log In</DialogTitle>
-                                <DialogContent >
+                                <SignIn />
+                                {/*<DialogContent >
                                     <DialogContentText>
                                         Enter valid email and password
                                     </DialogContentText>
-
-                                    <LoginReduxForm onSubmit={handleSubmit}  />
-
                                     <TextField autoFocus margin="dense" id="name" label="Email" type="email" fullWidth/>
                                     <TextField autoFocus margin="dense" id="pass" label="Password" type="password"
                                                  fullWidth/>
@@ -145,8 +141,8 @@ const Header = (props) => {
                                 <DialogActions>
                                     <Button onClick={handleClose} color="primary">Cancel</Button>
                                     <Button onClick={handleClose} color="primary" >Log In</Button>
-                                </DialogActions>
-                            </Dialog>*/}
+                                </DialogActions>*/}
+                            </Dialog>
                        </Box>
 
                         <Button color="secondary" variant="contained">Sign Up</Button>

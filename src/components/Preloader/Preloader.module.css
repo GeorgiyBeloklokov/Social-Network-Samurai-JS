@@ -1,0 +1,10 @@
+.loader{
+    width: 35rem;
+    height: 35rem;
+    position: absolute;
+    top: 15%;
+    left: 30%;
+    /*margin-left: -50px;
+    margin-top:-50px;*/
+}
+

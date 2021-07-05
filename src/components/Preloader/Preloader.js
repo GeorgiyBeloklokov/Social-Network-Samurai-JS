@@ -1,12 +1,10 @@
 import loader from "../../assets/images/loader.svg";
 import React from "react";
+import style from "./Preloader.module.css"
 
-
-let Preloader = (props) => {
-
+let Preloader = () => {
     return <div>
-    <img alt= ' ' src={loader } />
+    <img alt= 'loader' src={loader} className={style.loader}/>
 </div>
-
 }
 export default Preloader;

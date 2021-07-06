@@ -1,32 +1,10 @@
 import React, {useState} from "react";
-import b from "./Header.module.css";
 import {NavLink, withRouter} from "react-router-dom";
-import {
-    AppBar,
-    Box,
-    Button,
-    Container,
-    Dialog, DialogContent, DialogActions, DialogContentText, DialogTitle,
-    IconButton,
-    Link,
-    MenuItem, TextField,
-    Toolbar,
-    Typography, Input
-} from "@material-ui/core";
+import {AppBar, Box, Button, Container, Dialog, IconButton, MenuItem, Toolbar, Typography} from "@material-ui/core";
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from "@material-ui/icons/Menu";
 import {makeStyles} from "@material-ui/core/styles";
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import Switch from '@material-ui/core/Switch';
-import Navbar from "../Navbar/Navbar";
-import s from "../Navbar/Navbar.module.css";
-import {Login, LoginForm, LoginReduxForm} from "../Login/Login";
-import handleSubmit from "redux-form/lib/handleSubmit";
-import {useDispatch} from "react-redux";
-import {login} from "../../redux/auth-reducer";
-import {SignIn} from "./SigInForm";
+import SignIn from "./SigInForm";
 
 
 /*const Header = (props) => {
@@ -69,11 +47,12 @@ const Header = (props) => {
 
     const handleClickOpen = () => {
         setGopen(true);
-
     };
+
+
     const handleClose = () => {
         setGopen(false);
-        Login(props);
+
     };
 
     const handleMenu = (event) => {
@@ -83,6 +62,7 @@ const Header = (props) => {
     const handleMenuClick = (pageURL) => {
         history.push(pageURL);
         setAnchorEl(null);
+
     };
     return (
         <AppBar position="fixed" opacity="60%" color="primary">
@@ -118,31 +98,21 @@ const Header = (props) => {
                     < Typography variant="h6" className={classes.title}>SocialNetworkSamJS</Typography>
                    <Box mr={3}>
 
-                        <Button color="inherit" variant="outlined" onClick={handleClickOpen} >Log In</Button>
+                        {/*<Button color="inherit" variant="outlined" onClick={handleClickOpen} >Log In</Button>*/}
 
                             {/*{props.isAuth ?  <div>{props.login}  <Button color="inherit" variant="outlined" onClick={props.logout}>Log out</Button></div>
                                 : <NavLink to={'/login'}><Button color="inherit" variant="outlined" >Login</Button></NavLink>
                             }*/}
 
 
-
-
-                            <Dialog  open={gopen} onClose={handleClose} aria-labelledby="form-dialog-title">
-                                <DialogTitle id="form-dialog-title">Log In</DialogTitle>
+                       {props.isAuth ? <NavLink to={'/profile'}/> :
+                       <Dialog  open={gopen} onClose={handleClose} aria-labelledby="form-dialog-title">
                                 <SignIn />
-                                {/*<DialogContent >
-                                    <DialogContentText>
-                                        Enter valid email and password
-                                    </DialogContentText>
-                                    <TextField autoFocus margin="dense" id="name" label="Email" type="email" fullWidth/>
-                                    <TextField autoFocus margin="dense" id="pass" label="Password" type="password"
-                                                 fullWidth/>
-                                </DialogContent>
-                                <DialogActions>
-                                    <Button onClick={handleClose} color="primary">Cancel</Button>
-                                    <Button onClick={handleClose} color="primary" >Log In</Button>
-                                </DialogActions>*/}
-                            </Dialog>
+
+                            </Dialog> }
+                       {props.isAuth ?  <div>{props.login} <Button color="inherit" variant="outlined" onClick={props.logout}>Log out</Button></div>
+                           : <Button color="inherit" variant="outlined" onClick={handleClickOpen}>Login</Button>
+                       }
                        </Box>
 
                         <Button color="secondary" variant="contained">Sign Up</Button>

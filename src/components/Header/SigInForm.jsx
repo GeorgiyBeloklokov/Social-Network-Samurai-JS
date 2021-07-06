@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -10,18 +10,18 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import {Login, LoginReduxForm} from "../Login/Login";
-import handleSubmit from "redux-form/lib/handleSubmit";
-import {Redirect} from "react-router-dom";
-import l from "../Login/Login.module.css";
+import {connect} from "react-redux";
+import {login} from "../../redux/auth-reducer";
+import {Paper} from "@material-ui/core";
+
 
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
+            <Link color="inherit" href="#">
                 Your Website
             </Link>{' '}
             {new Date().getFullYear()}
@@ -48,49 +48,41 @@ const useStyles = makeStyles((theme) => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
+
 }));
 
-export const SignIn = (props) => {
-    const classes = (props, useStyles());
+const SignIn = (props) => {
 
+
+    const classes = (props, useStyles());
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [rememberMe, setRememberMe] = useState('false');
+    const [captcha, setCaptcha] = useState(props.captcha);
 
+    useEffect(() => {
+            setCaptcha(props.captcha);
+        }, [props.captcha]
+    );
 
-    /*const onuanSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe, formData.captcha);
-    }
-    if (props.isAuth) {
-        return <Redirect to={"/profile"}/>
-    }*/
-
-        /*return (
-            <div className={l.logIn}>
-                <h1>LOGIN</h1>
-                <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
-
-            </div>
-
-        )
-    }*/
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log( 'Email:', email, 'Password: ', password);
+        props.login(email, password, rememberMe, captcha);
     }
 
 
     return (
         <Container component="main" maxWidth="xs">
-            <CssBaseline />
+            <CssBaseline/>
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon />
+                    <LockOutlinedIcon/>
                 </Avatar>
                 <Typography component="h1" variant="h5">
                     Sign in
                 </Typography>
-                <form className={classes.form} noValidate  onSubmit={handleSubmit}>
+                <form className={classes.form} noValidate onSubmit={handleSubmit}>
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -102,7 +94,7 @@ export const SignIn = (props) => {
                         autoComplete="email"
                         autoFocus
                         value={email}
-                        onInput={ e=>setEmail(e.target.value)}
+                        onInput={e => setEmail(e.target.value)}
                     />
                     <TextField
                         variant="outlined"
@@ -115,12 +107,31 @@ export const SignIn = (props) => {
                         id="password"
                         autoComplete="current-password"
                         value={password}
-                        onInput={ e=>setPassword(e.target.value)}
+                        onInput={e => setPassword(e.target.value)}
                     />
                     <FormControlLabel
-                        control={<Checkbox value="remember" color="primary" />}
+                        control={<Checkbox value="true" color="primary"/>}
                         label="Remember me"
-                    />
+                        value={rememberMe}
+                        onInput={e => setRememberMe(e.target.value)}/>
+
+
+                    <Paper variant="outlined" className={classes.captch}>
+                         <img  alt={'img'} src={props.captchaUrl}/>
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="captcha"
+                            label="Captcha"
+                            type="text"
+                            id="captcha"
+                            autoComplete="current-captcha"
+                            value={captcha}
+                            onInput={e => setCaptcha(e.target.value)}
+                        />
+                    </Paper>
                     <Button
                         type="submit"
                         fullWidth
@@ -146,8 +157,15 @@ export const SignIn = (props) => {
                 </form>
             </div>
             <Box mt={8}>
-                <Copyright />
+                <Copyright/>
             </Box>
         </Container>
     );
 }
+
+const mapStateToProps = (state) => ({
+    captchaUrl: state.auth.captchaUrl,
+    isAuth: state.auth.isAuth
+});
+
+export default connect(mapStateToProps, {login})(SignIn);

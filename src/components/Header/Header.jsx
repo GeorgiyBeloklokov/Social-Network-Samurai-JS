@@ -20,21 +20,18 @@ import SignIn from "./SigInForm";
 }
 export default Header;*/
 
-
 export const useStyles = makeStyles((theme) => ({
         root: {
             flexGrow: 1
         },
+
         menuButton: {
             marginRight: theme.spacing(1) // 8px, 2=16px, 3=24px
-
         },
 
         title: {
             flexGrow: 1 // коэф увеличения ширины флекс элемента страницы относительно других флекс элеменитов внутри контейнера
-
         },
-
     }
 ))
 
@@ -47,12 +44,11 @@ const Header = (props) => {
 
     const handleClickOpen = () => {
         setGopen(true);
-    };
 
+    };
 
     const handleClose = () => {
         setGopen(false);
-
     };
 
     const handleMenu = (event) => {
@@ -62,8 +58,8 @@ const Header = (props) => {
     const handleMenuClick = (pageURL) => {
         history.push(pageURL);
         setAnchorEl(null);
-
     };
+
     return (
         <AppBar position="fixed" opacity="60%" color="primary">
             <Container>
@@ -96,32 +92,21 @@ const Header = (props) => {
                         </Menu>
                     </div>
                     < Typography variant="h6" className={classes.title}>SocialNetworkSamJS</Typography>
-                   <Box mr={3}>
 
-                        {/*<Button color="inherit" variant="outlined" onClick={handleClickOpen} >Log In</Button>*/}
-
-                            {/*{props.isAuth ?  <div>{props.login}  <Button color="inherit" variant="outlined" onClick={props.logout}>Log out</Button></div>
-                                : <NavLink to={'/login'}><Button color="inherit" variant="outlined" >Login</Button></NavLink>
-                            }*/}
-
-
-                       {props.isAuth ? <NavLink to={'/profile'}/> :
-                       <Dialog  open={gopen} onClose={handleClose} aria-labelledby="form-dialog-title">
-                                <SignIn />
-
-                            </Dialog> }
-                       {props.isAuth ?  <div>{props.login} <Button color="inherit" variant="outlined" onClick={props.logout}>Log out</Button></div>
-                           : <Button color="inherit" variant="outlined" onClick={handleClickOpen}>Login</Button>
-                       }
-                       </Box>
-
-                        <Button color="secondary" variant="contained">Sign Up</Button>
-                        </Toolbar>
-                        </Container>
-                        </AppBar>
-
-                        );
-                        }
-
-
-                        export default withRouter(Header);
+                    <Box mr={3}>
+                        {props.isAuth ? <NavLink to={'/profile'}/> :
+                            <Dialog open={gopen} onClose={handleClose} aria-labelledby="form-dialog-title">
+                                <SignIn/>
+                            </Dialog>}
+                        {props.isAuth ?
+                            <div>{props.login}<Button color="inherit" variant="outlined" onClick={props.logout}>Log
+                                out</Button></div>
+                            : <Button color="inherit" variant="outlined" onClick={handleClickOpen}>Login</Button>}
+                    </Box>
+                    <Button color="secondary" variant="contained">Sign Up</Button>
+                </Toolbar>
+            </Container>
+        </AppBar>
+    );
+}
+export default withRouter(Header);

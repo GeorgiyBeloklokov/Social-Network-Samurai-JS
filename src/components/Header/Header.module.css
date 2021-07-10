@@ -14,7 +14,7 @@
 
 }
 
-.but {
+/*.but {
     height: 1.7rem;
     width: 5rem;
 
@@ -25,7 +25,8 @@
     border-radius: 5px;
     box-shadow: 0 0 0 60px rgba(0,0,0,0) inset, .1em .1em .2em #800;
     background: linear-gradient(#FB9575, #F45A38 48%, #EA1502 52%, #F02F17);
-}
+}*/
+
 .but:active {
     top: .1em;
     left: .1em;

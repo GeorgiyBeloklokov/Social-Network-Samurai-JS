@@ -8,10 +8,9 @@ import {Redirect} from "react-router-dom";
 import style from "./../FornControls/FormsControls.module.css";
 import {Button} from "@material-ui/core";
 import l from "./Login.module.css"
-import {renderChildren} from "redux-form/lib/ReduxFormContext";
 
 
- const LoginForm = ({handleSubmit,error,captchaUrl}) => {
+const LoginForm = ({handleSubmit,error,captchaUrl}) => {
     return (
         <form onSubmit={handleSubmit}>
             {createField ("Email", "email",[required], renderTextField )}

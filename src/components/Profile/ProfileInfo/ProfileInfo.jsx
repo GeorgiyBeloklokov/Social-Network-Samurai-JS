@@ -8,9 +8,9 @@ import {Button} from "@material-ui/core";
 import {InputCustom} from "../../../utils/Buttons/InputCustom";
 
 
-const ProfileInfo = ({isOwner, profile, status, updateStatus, savePhoto,saveProfile}) => {
+const ProfileInfo = ({isOwner, profile, status, updateStatus, savePhoto, saveProfile}) => {
 
-  let [editMode, setEditMode] = useState(false);
+    let [editMode, setEditMode] = useState(false);
 
     if (!profile) {
         return <Preloader/>
@@ -23,64 +23,83 @@ const ProfileInfo = ({isOwner, profile, status, updateStatus, savePhoto,saveProf
     }
 
     const onSubmit = (formData) => {
-         saveProfile(formData).then(
-             () => {
-                 setEditMode(false);
-             })
-         }
+        saveProfile(formData).then(
+            () => {
+                setEditMode(false);
+            })
+    }
 
     return (
-        <div>
-             {/*<div>
-                <img className={s.image1}
-                     src='https://fainaidea.com/wp-content/uploads/2020/05/f8a4c90d00ce2e5684c3bf47c4a6ce17.jpg'
-                     alt=" "/>
-            </div>*/}
-            <div>
-
-                {/*<MaterialUiForm />*/}
-            </div>
-            <div className={s.p}>
-                < img className={s.img1profile}
-                      src={profile.photos.large || userPhoto} alt="img"/>
-                {isOwner && <div><InputCustom savePhoto={onMainPhotoSelected} /></div>}
-            </div>
-            <div>
+        <div className={s.profileInfo}>
+            <div className={s.status}>
                 <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
             </div>
+            <div className={s.profileInfoWrapper}>
 
-            { editMode ? <ProfileDataForm initialValues={profile}  profile={profile} onSubmit={onSubmit} />
-                : <ProfileData goToEditMode={()=>{setEditMode(true)}} profile={profile} isOwner={isOwner}/> }
+                <div className={s.pofileInfoTop}>
+                    <hr/>
+                    <div>
+                        < img className={s.img1profile}
+                              src={profile.photos.large || userPhoto} alt="img"/>
+                        {isOwner && <div className={s.savefile}><InputCustom savePhoto={onMainPhotoSelected}/></div>}
+                    </div>
+                </div>
+                <div className={s.ProfInfo}>
+                    {editMode ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}/>
+                        : <ProfileData goToEditMode={() => {
+                            setEditMode(true)
+                        }} profile={profile} isOwner={isOwner}/>}
+                </div>
+            </div>
         </div>
-
     )
 }
 
-const ProfileData = ({profile,isOwner,goToEditMode}) => {
-    return <div className={s.formaprof}>
-        {isOwner && <div><Button color="primary" variant="contained" onClick={goToEditMode}>Edit</Button></div>}
-        <div>
-            <b>FullName:</b> {profile.fullName}
-        </div>
-        <div className={s.z}>
-            <b>About me: </b> {profile.aboutMe}
-        </div>
+const ProfileData = ({profile, isOwner, goToEditMode}) => {
+    return (
 
-        <div><b>Looking for a job :</b>{profile.lookingForAJob ? "yes" : "no" }
-        </div>
-        {profile.lookingForAJob &&
-        <div><b>Descripcion:</b> {profile.lookingForAJobDescription}</div>
-        }
         <div>
-            <b> Contacts: </b> {Object.keys(profile.contacts).map(key => {
-            return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
-        })}
+
+            <div className={s.topProfileDataPartHead}>
+                <div className={s.topProfileDataPart}>
+                    <b>My Name:</b> {profile.fullName}
+                </div>
+                <div className={s.topProfileDataPart}>
+                    <b>About me: </b> {profile.aboutMe}
+                </div>
+
+                <div className={s.topProfileDataPart}><b>Looking for a job :</b>{profile.lookingForAJob ? "yes" : "no"}
+                </div>
+                {profile.lookingForAJob &&
+                <div className={s.topProfileDataPart}><b>Descripcion:</b> {profile.lookingForAJobDescription}</div>
+                }
+            </div>
+
+            <div className={s.contactFirstFormHead}>
+                <b>Contacts:</b> {Object.keys(profile.contacts).map(key => {
+                return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
+            })}
+            </div>
+            <div className={s.buttonForma}>
+                {isOwner && <div><Button style={{
+                    maxWidth: '5.8rem',
+                    maxHeight: '1.5rem',
+                    minWidth: '2.4rem',
+                    minHeight: '1rem',
+                    fontSize: '0.5rem',
+                    textAlign: 'center'
+                }} color="primary" variant="contained" onClick={goToEditMode}>Edit</Button></div>}
+            </div>
         </div>
-    </div>
+    )
 }
-
 
 const Contact = ({contactTitle, contactValue}) => {
-    return <div><b>{contactTitle}</b> : {contactValue} </div>
+    return (
+        <div>
+            <div className={s.contactsFirstForm}><b>{contactTitle}</b> : {contactValue} </div>
+        </div>
+    )
 }
+
 export default ProfileInfo;

@@ -2,12 +2,14 @@
   width: 100%;
   margin: 64px auto;
   display: grid;
-  grid-template-rows: 60px 2fr;
-  grid-template-columns: 1fr 10fr;
+
+  grid-template-columns: 2fr 10fr 3fr;
+  grid-auto-rows: auto;
   grid-template-areas:
-"a a a"
-"a a a";
-  grid-gap: 4px;
+"l a r"
+"l a r"
+"f f f";
+  grid-gap: 0.3rem;
 }
 
 
@@ -21,10 +23,3 @@
   color: red;
   font-size: 3rem;
 }
-
-
-
-
-
-
-

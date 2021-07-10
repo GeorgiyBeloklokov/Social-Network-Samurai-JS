@@ -3,6 +3,7 @@ import f from "./News.module.css";
 import DialogIthem from "../Dialogs/DialogIthem/DialogIthem";
 import Message from "../Dialogs/Message/Message";
 import NewsTextArea from "./NewsForm";
+import FetchDataFromRSSFeed, {RssFeed} from "../Rss/Rss";
 
 class News extends React.Component {
     constructor(props) {
@@ -23,7 +24,9 @@ class News extends React.Component {
                 <div>{this.dialogsElements}</div>
                 <div>{this.messagesElements}</div>
                 <NewsTextArea onSubmit={this.addPostNews}/>
+                <RssFeed />
             </div>
+
         )
     }
 }

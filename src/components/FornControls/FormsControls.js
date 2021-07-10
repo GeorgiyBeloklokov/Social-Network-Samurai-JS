@@ -22,6 +22,7 @@ const FormControl = ({input, meta, Formtype, url, ...props}) => {
 
 export const renderTextField = ({label, input, meta: { touched, invalid, error }, ...custom }) => (
     <TextField
+        style = {{width:400}}
         label={label}
         placeholder={label}
         error={touched && invalid}
@@ -36,7 +37,7 @@ export const renderCheckbox = ({ input, label }) => (
         <FormControlLabel
             control={
                 <Checkbox
-                    checked={input.value ? true : false}
+                    checked={!!input.value}
                     onChange={input.onChange}
                 />
             }

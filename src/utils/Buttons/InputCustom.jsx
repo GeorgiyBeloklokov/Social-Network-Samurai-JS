@@ -34,16 +34,16 @@ let savePhoto = props.savePhoto;
                 onChange={savePhoto}
             />
             <label htmlFor="contained-button-file">
-                <Button  size="small" variant="contained" color="primary" component="span">
+                <Button  style={{maxWidth: '5.8rem', maxHeight: '1.5rem', minWidth: '2.4rem', minHeight: '1rem', fontSize:'0.5rem', textAlign:'center'}}  variant="contained" color="primary" component="span">
                     Upload Image
                 </Button>
             </label>
-            <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
+            {/*<input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
             <label htmlFor="icon-button-file">
                 <IconButton   color="primary" aria-label="upload picture" component="span">
-                    <PhotoCamera fontSize="large"/>
+                    <PhotoCamera fontSize="medium"/>
                 </IconButton>
-            </label>
+            </label>*/}
         </div>
     );
 }

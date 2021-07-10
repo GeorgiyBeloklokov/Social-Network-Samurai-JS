@@ -1,4 +1,4 @@
-/*
+
 import React from "react";
 import DialogIthem from "../Dialogs/DialogIthem/DialogIthem";
 import {connect} from "react-redux";
@@ -17,4 +17,4 @@ let mapStateToProps = (state) => {
 const NavbarContainer = connect (mapStateToProps)(Navbar);
 
 export default NavbarContainer;
-*/
+

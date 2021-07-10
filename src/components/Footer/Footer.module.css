@@ -1,0 +1,13 @@
+
+.footer {
+    grid-area: f;
+    background-color: #3f51b5;
+    /*position: sticky;*/
+    margin: -5px 0 0 0  ;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+
+}
+/*
+.flexfooter {
+    display: flex;
+}*/

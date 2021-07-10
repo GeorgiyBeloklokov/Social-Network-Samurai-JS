@@ -5,7 +5,6 @@ import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
 import NewsContainer from "./components/News/NewsContainer";
 import MusicContainer from "./components/Music/MusicContainer";
-import NavbarContainer from "./components/Navbar/NavbarContainer";
 import UsersContainer from "./components/Users/Users.Container";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
@@ -13,15 +12,12 @@ import {connect} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/Preloader/Preloader";
 import {withSuspense} from "./components/hoc/WithSuspense";
-import {makeStyles} from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import {Button, Container, Typography} from "@material-ui/core";
+import RightsideBar from "./components/RightSideBar/RightSideBar";
+import LeftSideBar from "./components/LeftSideBar/LeftSideBar";
+import Footer from "./components/Footer/Footer";
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
-
-
 
 
 class App extends React.Component {
@@ -41,8 +37,6 @@ class App extends React.Component {
     }
 
 
-
-
     render() {
         if (!this.props.initialized) {
             return <Preloader/>
@@ -50,35 +44,11 @@ class App extends React.Component {
 
         return (
 
-
-           /* <main>
-                <Paper className={classes.mainFeaturesPost}
-                       style={{backgroundImage: `url(https://source.unsplash.com/random)`}}>
-                    <Container maxWidth="md">
-                        <Grid container>
-                            <Grid item md={6}>
-                                <div className={classes.mainFeaturesPostContent}>
-                                    <Typography component="h1" color="inherit" gutterBottom >
-                                        Social network JS
-                                    </Typography>
-                                    <Typography component="h5" color="inherit" paragraph >
-                                        Lorem rlkgmrktgm,ertkgmromgti,etgrkom4rtgimo,e4kmgrt4oemgt,erogngt,wcini3ruv,wiu3fne.
-                                    </Typography>
-                                    <Button variant="contained" color="secondary">Learn more</Button>
-                                </div>
-                            </Grid>
-                        </Grid>
-                    </Container>
-                </Paper>
-            </main>*/
-
-
-
-
-
             <div className='app-wrapper'>
-                {/*<NavbarContainer/>*/}
+                <LeftSideBar/>
                 <HeaderContainer/>
+                <RightsideBar/>
+                <Footer/>
 
                 <div className='app-wrapper-content'>
                     <Switch>

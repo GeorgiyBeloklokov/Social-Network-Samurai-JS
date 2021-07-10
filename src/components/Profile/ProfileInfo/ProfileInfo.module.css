@@ -1,26 +1,115 @@
 
 .img1profile {
-    width: 20%;
-    height:10%;
+    width: 60%;
+    height: 60%;
     border-radius: 10%;
-
-    background: #8e8e8e; /* Цвет фона */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Параметры тени */
+    margin: 0.2rem 0 0 0.4rem;
+    background: #000000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     padding: 2px;
 
 }
 
-.input{
+.input {
     padding-top: 1rem;
 }
 
-.p {
-    padding: 3.5rem;
+
+.buttonFormaEditMode {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
+.buttonForma {
+    position: relative;
+    left: 42%;
+    /*transform: translate(-50%, 0);*/
+}
+
+.status {
+    width: fit-content;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Параметры тени */
+    padding: 0.4rem;
+    margin: 1rem 0.1rem 0.1rem 0.6rem;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+}
+
+.savefile {
+    margin: 0 0 0 1.7rem;
+}
+
+.profileInfoWrapper {
+    display: flex;
+}
+
+.topProfileDataPart {
+    margin: 1rem 0 0 0;
+}
+
+.contactsFirstForm {
+    margin: 1rem 0 0 0;
+
+}
+
+.topProfileDataPartHead {
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);*/
+    padding: 0.1rem 1rem 1rem 1rem;
+    -webkit-box-shadow: 0px 10px 20px -7px rgba(34, 60, 80, 0.18);
+    -moz-box-shadow: 0px 10px 20px -7px rgba(34, 60, 80, 0.18);
+    box-shadow: 0px 10px 20px -7px rgba(34, 60, 80, 0.18);
 
 
-.formaprof {
+}
 
-    padding-left: 1rem;
+.topProfileDataPartHeadtwo {
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);*/
+    padding: 0.1rem 1rem 1rem 1rem;
+    -webkit-box-shadow: 0px 10px 20px -7px rgba(34, 60, 80, 0.18);
+    -moz-box-shadow: 0px 10px 20px -7px rgba(34, 60, 80, 0.18);
+    box-shadow: 0px 10px 20px -7px rgba(34, 60, 80, 0.18);
+    /*position: relative;
+    left: 14%;*/
+
+}
+
+.contactFirstFormHead {
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);*/
+    padding: 1rem 1rem 1rem 1rem;
+    margin: 2rem 0 0 0;
+    -webkit-box-shadow: 0px -6px 18px -1px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px -6px 18px -1px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px -6px 18px -1px rgba(34, 60, 80, 0.2);
+}
+
+.contactFirstFormHeadTwo {
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);*/
+    padding: 1rem 1rem 1rem 1rem;
+    margin: 2rem 0 0 0;
+    -webkit-box-shadow: 0px -6px 18px -1px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px -6px 18px -1px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px -6px 18px -1px rgba(34, 60, 80, 0.2);
+    /*position: relative;
+    left: 14%*/;
+}
+
+.ProfInfo {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 2.5rem 0 0 0;
+}
+
+/*
+.profileDataFormHead {
+padding: 4rem 10rem 0.3rem 3rem;
+
+}*/
+
+.buttonsProfileDataForm {
+    display: flex;
+    justify-content: space-around;
+}
+
+.statusPoiner {
+    cursor: pointer;
 }

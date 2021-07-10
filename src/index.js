@@ -9,11 +9,11 @@ import {Provider} from "react-redux";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
-    <BrowserRouter >
+    <HashRouter >
         <Provider store={store}>
             <App />
         </Provider>
-    </BrowserRouter>,
+    </HashRouter>,
     document.getElementById('root'));
 
 

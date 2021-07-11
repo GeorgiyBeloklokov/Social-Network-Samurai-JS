@@ -2,8 +2,7 @@ import React from "react";
 import f from "./News.module.css";
 import DialogIthem from "../Dialogs/DialogIthem/DialogIthem";
 import Message from "../Dialogs/Message/Message";
-import NewsTextArea from "./NewsForm";
-import FetchDataFromRSSFeed, {RssFeed} from "../Rss/Rss";
+import FetchDataFromRSSFeed from "../Rss/Rss";
 
 class News extends React.Component {
     constructor(props) {
@@ -21,10 +20,10 @@ class News extends React.Component {
             .map(m => <Message message={m.message} key={(m.id)}/>);
         return (
             <div className={f.news}>
-                <div>{this.dialogsElements}</div>
+                {/*<div>{this.dialogsElements}</div>
                 <div>{this.messagesElements}</div>
-                <NewsTextArea onSubmit={this.addPostNews}/>
-                <RssFeed />
+                <NewsTextArea onSubmit={this.addPostNews}/>*/}
+                <FetchDataFromRSSFeed />
             </div>
 
         )
